@@ -1,4 +1,4 @@
-
+import java.util.List;
 import java.util.ArrayList;
 
 /**
@@ -80,6 +80,75 @@ public class TrackOrganizer {
     public AudioTrack getTrackAt(int index) {
         return trackArchive.getTrackAt(index);
     }
+    
+    /**
+     * Checking for searchWord in all fields in all tracks. If any field in any 
+     * track contains searchWord, the the track will b
+     * @param searchWord word to search for
+     * @return ArrayList containing all tracks containing search word
+     */
+    public ArrayList searchByString(String searchWord){
+        ArrayList<AudioTrack> result;
+        result = new ArrayList<AudioTrack>();
+        ArrayList<AudioTrack> nokke;
+        nokke = trackArchive.getTrackList();
+        
+        for(AudioTrack someTrack : nokke)
+        {
+            if(someTrack.getTitle().contains(searchWord))
+            {
+                result.add(someTrack);
+            }
+            else if (someTrack instanceof Music)
+            {
+                Music track = ((Music)someTrack);
+                if(track.getAlbumAsString().contains(searchWord))
+                {
+                    result.add(someTrack);
+                }
+                else if(track.getArtist().contains(searchWord))
+                {
+                    result.add(someTrack);
+                }
+            }
+            else if (someTrack instanceof News)
+            {
+                News track = ((News) someTrack);
+                if(track.getJournalist().contains(searchWord))
+                {
+                    result.add(someTrack);
+                }
+                else if(track.getStory().contains(searchWord))
+                {
+                    result.add(someTrack);
+                }
+            }
+            else if(someTrack instanceof SoundEffects)
+            {
+                SoundEffects track = ((SoundEffects) someTrack);
+                if(track.getDescription().contains(searchWord))
+                {
+                    result.add(someTrack);
+                }
+            }
+            else if(someTrack instanceof AdvertisingJingle)
+            {
+                AdvertisingJingle track = ((AdvertisingJingle) someTrack);
+                if(track.getCompany().contains(searchWord))
+                {
+                    result.add(someTrack);
+                }
+                else if(track.getProduct().contains(searchWord))
+                {
+                    result.add(someTrack);
+                }                    
+            }
+        }
+        
+        System.out.println(result.get(0).getTitle()); // To be removed!!--------------------------------------
+        return result;
+    }
+        
     
     
     
@@ -244,13 +313,7 @@ public class TrackOrganizer {
         return mediumArchive.getMediumAt(index);
         
     }
-    
-    
-    public String listAllTracks()
-    {
-       return trackArchive.listAllTracks();
-    }
-    
+        
     public void printTest()
     {
         System.out.println("PizzaBurger");
@@ -270,7 +333,7 @@ public class TrackOrganizer {
         addCD("Harams bingomusikk", "Petter Pikk", 2009, "Balletronds musikkforening", 10008);
         addCD("Harams påskelåter", "Leif Live", 2003, "HaramStudio", 10009);
         
-        addCD("kake", "kakeMonster", 0324, "hakf", 1);
+        
        
         
        
@@ -290,6 +353,12 @@ public class TrackOrganizer {
         addMusicTrack("the most awesome track ever", 3, 58, "Trude tran", 010315, timesPlayed, 10008);
         addMusicTrack("no title", 3, 02, artist, 100915, timesPlayed, 10005);
         addMusicTrack("kakevisa", 5, 31, artist, 120415, timesPlayed, 10002);
+        addAvertisingJingle("Reklame for flysokker", 5, 24, 10009, "Strykefrie flysokker", "NumTek, Strømpenes venn (strømper med ekte Nano(num)tek. Basert på studier utført av sogneForsk");
+        addAvertisingJingle("Reklame for softshelltruser", 0, 31, 10009, "Softshelltruser", "NumTek, Truser med ekte Nano(num)tek.");
+        addNewsTrack("Dette er nyheter", 2, 55, 10009, "Slakklav Rune Nummedal, CEO for NumTek, tiltalt for skattesnylting", "VegRog", 55, 0);
+        addSoundEffect("Svisj", 00 , 27, "Ekte sverd-svisj", 10009);
+        
+        
         
         
     }

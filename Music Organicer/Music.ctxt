@@ -20,4 +20,6 @@ comment5.text=\r\n\ Returns\ the\ number\ of\ times\ the\ music\ track\ is\ play
 comment6.params=timesPlayed
 comment6.target=void\ setTimesPlayed(int)
 comment6.text=\r\n\ Sets\ the\ number\ of\ times\ the\ music\ track\ is\ played.\r\n\ \r\n\ @param\ \ \ \ \ \ \ timesPlayed.\r\n
-numComments=7
+comment7.params=
+comment7.target=java.lang.String\ getAlbumAsString()
+numComments=8
