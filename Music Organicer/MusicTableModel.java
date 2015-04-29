@@ -11,6 +11,7 @@ public class MusicTableModel extends AbstractTableModel
 
     private String[] columnNames = {"Title", "Artist", "Album"}; //same as before...
     private TrackOrganizer trackOrganizer;
+    
 
     
     public MusicTableModel( TrackOrganizer trackOrganizer )
@@ -24,7 +25,9 @@ public class MusicTableModel extends AbstractTableModel
     }
 
     public int getRowCount() {
-        return this.trackOrganizer.getNumberOfTracks();
+       int returnNumb = this.trackOrganizer.getNumberOfTracks();
+        //System.out.println(returnNumb);
+        return returnNumb;
     }
 
     public String getColumnName(int col) {
@@ -33,25 +36,28 @@ public class MusicTableModel extends AbstractTableModel
 
     public Object getValueAt(int row, int col) {
         String result = "";
-        
+        Music musicTrack = null;
         // First get the audiotrack corresponding to the row-number
-        AudioTrack track  = this.trackOrganizer.getTrackAt(row);
-        if (null != track)
+        if(trackOrganizer.getTrackAt(row)instanceof Music) {
+        musicTrack  = ((Music)this.trackOrganizer.getTrackAt(row));
+        }
+        
+        if (null != musicTrack)
         { 
             switch( col )
             {
                 case 0:
-                    //result = track.getTitle();
-                    result = "ape";
+                   result = musicTrack.getTitle();
+                   
                     break;
                     
                 case 1:
-                    //result = track.getArtist();
-                    result = "suppegjøk";
+                    result = musicTrack.getArtist();
+                   
                     break;
                 case 2:
-                    //result = track.getAlbum();
-                    result = "habalababalala";
+                    result = musicTrack.getAlbumAsString();
+                   
                     break;
                 default:
                     result = "UNKNOWN";

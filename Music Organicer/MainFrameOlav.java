@@ -1,4 +1,5 @@
 
+import javax.swing.JTable;
 import javax.swing.Popup;
 
 /*
@@ -18,11 +19,13 @@ public class MainFrameOlav extends javax.swing.JFrame {
      */
     
     TrackOrganizer trackOrganizer;
+ 
     
     public MainFrameOlav() {
         trackOrganizer = new TrackOrganizer();
         initComponents();
         addMediumPanel.setVisible(false);
+        list.setVisible(false);
         
        
        
@@ -40,6 +43,13 @@ public class MainFrameOlav extends javax.swing.JFrame {
         addMedium = new javax.swing.JButton();
         addMediumPanel = new javax.swing.JPanel();
         addCD = new javax.swing.JButton();
+        listArchive = new javax.swing.JButton();
+        listCDArchive = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        list = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        CDlist = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,27 +79,72 @@ public class MainFrameOlav extends javax.swing.JFrame {
             addMediumPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMediumPanelLayout.createSequentialGroup()
                 .addComponent(addCD)
-                .addGap(0, 97, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
+
+        listArchive.setText("List all tracks");
+        listArchive.setToolTipText("");
+        listArchive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listArchiveActionPerformed(evt);
+            }
+        });
+
+        listCDArchive.setText("List CD archive");
+        listCDArchive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listCDArchiveActionPerformed(evt);
+            }
+        });
+
+        list.setModel(new MusicTableModel(trackOrganizer)
+        );
+        jScrollPane1.setViewportView(list);
+
+        jTabbedPane1.addTab("Tracks", jScrollPane1);
+
+        CDlist.setModel(new CDTableModel(trackOrganizer)
+        );
+        jScrollPane2.setViewportView(CDlist);
+
+        jTabbedPane1.addTab("tab2", jScrollPane2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(addMedium)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addMedium)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 178, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(listArchive)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listCDArchive)))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addMedium))
-                .addContainerGap(147, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(addMedium)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(listArchive)
+                            .addComponent(listCDArchive))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -101,15 +156,27 @@ public class MainFrameOlav extends javax.swing.JFrame {
     }//GEN-LAST:event_addMediumActionPerformed
 
     private void addCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCDActionPerformed
-        
+
         PopUp dialog = new PopUp(this, true);
         dialog.setVisible(true);
-        
-        
-   
-        
-       
+
     }//GEN-LAST:event_addCDActionPerformed
+
+    private void listArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listArchiveActionPerformed
+        // TODO add your handling code here:
+       list.setVisible(true);
+    
+       
+
+        
+        
+      
+    }//GEN-LAST:event_listArchiveActionPerformed
+
+    private void listCDArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listCDArchiveActionPerformed
+        // TODO add your handling code here:
+        CDlist.setVisible(true);
+    }//GEN-LAST:event_listCDArchiveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -147,8 +214,15 @@ public class MainFrameOlav extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable CDlist;
     private javax.swing.JButton addCD;
     private javax.swing.JButton addMedium;
     private javax.swing.JPanel addMediumPanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable list;
+    private javax.swing.JButton listArchive;
+    private javax.swing.JButton listCDArchive;
     // End of variables declaration//GEN-END:variables
 }
