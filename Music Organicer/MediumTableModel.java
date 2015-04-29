@@ -1,19 +1,23 @@
+
 import javax.swing.table.AbstractTableModel;
 
-/**
- * Write a description of class MusicTableModel here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
  */
-public class MusicTableModel extends AbstractTableModel
-{
 
+/**
+ *
+ * @author Olav Rune
+ */
+public class MediumTableModel extends AbstractTableModel {
+    
     private String[] columnNames = {"Title", "Artist", "Album"}; //same as before...
     private TrackOrganizer trackOrganizer;
 
     
-    public MusicTableModel( TrackOrganizer trackOrganizer )
+    public MediumTableModel( TrackOrganizer trackOrganizer )
     {
         super();
         this.trackOrganizer = trackOrganizer;
@@ -71,3 +75,4 @@ public class MusicTableModel extends AbstractTableModel
         return getValueAt(0, c).getClass();
     }
 }
+    

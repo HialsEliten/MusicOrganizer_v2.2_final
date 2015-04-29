@@ -94,14 +94,13 @@ public class Music extends AudioTrack
     {
         this.timesPlayed = timesPlayed;
     }
+    
+    public String getAlbumAsString(){
+        
+        return getMedium().getTitle();
+    }
 
-    /**
-     * Returns the reference to medium of music track.
-     * 
-     * @return      mediumContaining.
-     */
    
-
     
   
 }

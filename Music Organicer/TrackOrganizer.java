@@ -18,11 +18,12 @@ public class TrackOrganizer {
         trackArchive = new AudioTrackArchive();
         mediumArchive = new MediumArchive();
         makeFirstTrack();
+        makeArcive();
 
     }
 
     public void makeFirstTrack() {
-        addCD("Sanger", "knut", 2001, "HaramStudio", 65);
+        addCD("Harams hits for kids", "knut", 2001, "HaramStudio", 65);
         //Medium enRandomCd = mediumArchive.getMediumAt(65);
 
         String title = "Thriller";
@@ -71,6 +72,9 @@ public class TrackOrganizer {
     public AudioTrack getTrackAt(int index) {
         return trackArchive.getTrackAt(index);
     }
+    
+    
+    
 
     /**
      * Add a Cd too the medium archive
@@ -234,6 +238,41 @@ public class TrackOrganizer {
     public void printTest()
     {
         System.out.println("PizzaBurger");
+    }
+    
+    public void makeArcive(){
+        
+        addCD("Harams hits for kids", "Kevin", 2001, "HaramStudio", 10000);
+        addCD("Harams hits for retards", "knut", 2015, "Haram gutteklubb", 10001);
+        addCD("Brattvågs hits for kids", "Olav", 1975, "Haram bingomafia", 10002);
+        addCD("Brattvågs hits for not kids", "Vegard", 1984, "HaramStudie", 10003);
+        addCD("Brattvågs hits for drunk kids", "Lars", 1943, "Haram studio?", 10004);
+        addCD("Harams tidløse klassikere", "Espen", 4215, "Haram publish AS", 10005);
+        addCD("Harams gylne sangløver", "JonKåre", 2006, "NumTek pushlish AS", 10006);
+        addCD("Harams symfoniorkester med støtte fra Tore på tuba", "LespeTrond", 2001, "HaramStudio", 10007);
+        addCD("Harams bingomusikk", "Petter Pikk", 2009, "Balletronds musikkforening", 10008);
+        addCD("Harams påskelåter", "Leif Live", 2003, "HaramStudio", 10009);
+       
+        
+       
+
+        String title = "Thriller";
+        long duration = 12;
+        int date = 32;
+        int timesPlayed = 2;
+        long minutes = 5;
+        long seconds = 24;
+        int archiveNumber = 65;
+
+        String artist = "Mikkel Jækkson";
+        addMusicTrack("You are my number one", 1, 14, "Kelvin Kalas", 120415, timesPlayed, 10000);
+        addMusicTrack("You are my number two", 1, 54, "Freddy Frøken", 110415, timesPlayed, 10000);
+        addMusicTrack("Habala?", 2, 12, "Trond tanga", 150915, timesPlayed, 10000);
+        addMusicTrack("the most awesome track ever", 3, 58, "Trude tran", 010315, timesPlayed, 10008);
+        addMusicTrack("no title", 3, 02, artist, 100915, timesPlayed, 10005);
+        addMusicTrack("kakevisa", 5, 31, artist, 120415, timesPlayed, 10002);
+        
+        
     }
     
 

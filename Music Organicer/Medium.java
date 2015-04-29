@@ -80,4 +80,30 @@ public class Medium
         return totalDuration.getDurationString();        
     }
 
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public DurationHandeling getTotalDuration() {
+        return totalDuration;
+    }
+
+    public void setTotalDuration(DurationHandeling totalDuration) {
+        this.totalDuration = totalDuration;
+    }
+
+    public ArrayList<AudioTrack> getTrackList() {
+        return trackList;
+    }
+
+    public void setTrackList(ArrayList<AudioTrack> trackList) {
+        this.trackList = trackList;
+    }
+    
+    
+
 }

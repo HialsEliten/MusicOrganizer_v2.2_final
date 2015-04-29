@@ -1,4 +1,5 @@
 
+import javax.swing.JTable;
 import javax.swing.Popup;
 
 /*
@@ -23,6 +24,7 @@ public class MainFrameOlav extends javax.swing.JFrame {
         trackOrganizer = new TrackOrganizer();
         initComponents();
         addMediumPanel.setVisible(false);
+        list.setVisible(false);
         
        
        
@@ -40,6 +42,9 @@ public class MainFrameOlav extends javax.swing.JFrame {
         addMedium = new javax.swing.JButton();
         addMediumPanel = new javax.swing.JPanel();
         addCD = new javax.swing.JButton();
+        listArchive = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        list = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -69,27 +74,51 @@ public class MainFrameOlav extends javax.swing.JFrame {
             addMediumPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(addMediumPanelLayout.createSequentialGroup()
                 .addComponent(addCD)
-                .addGap(0, 97, Short.MAX_VALUE))
+                .addGap(0, 22, Short.MAX_VALUE))
         );
+
+        listArchive.setText("List all tracks");
+        listArchive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listArchiveActionPerformed(evt);
+            }
+        });
+
+        list.setModel(new MusicTableModel(trackOrganizer)
+        );
+        jScrollPane1.setViewportView(list);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(addMedium)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(addMedium)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 178, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(listArchive))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(addMedium))
-                .addContainerGap(147, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(addMedium)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(45, 45, 45)
+                        .addComponent(listArchive)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
@@ -101,15 +130,20 @@ public class MainFrameOlav extends javax.swing.JFrame {
     }//GEN-LAST:event_addMediumActionPerformed
 
     private void addCDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCDActionPerformed
-        
+
         PopUp dialog = new PopUp(this, true);
         dialog.setVisible(true);
-        
-        
-   
-        
-       
+
     }//GEN-LAST:event_addCDActionPerformed
+
+    private void listArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listArchiveActionPerformed
+        // TODO add your handling code here:
+       list.setVisible(true);
+
+        
+        
+      
+    }//GEN-LAST:event_listArchiveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,5 +184,8 @@ public class MainFrameOlav extends javax.swing.JFrame {
     private javax.swing.JButton addCD;
     private javax.swing.JButton addMedium;
     private javax.swing.JPanel addMediumPanel;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable list;
+    private javax.swing.JButton listArchive;
     // End of variables declaration//GEN-END:variables
 }
