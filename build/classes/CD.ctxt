@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.params=title\ artist\ releaseYear\ recordLabel\ archiveNumber
+comment0.target=CD(java.lang.String,\ java.lang.String,\ int,\ java.lang.String,\ int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ CD\r\n
+comment1.params=
+comment1.target=java.lang.String\ getArtist()
+comment1.text=\r\n\ get\ artist\r\n\ @return\ artist\r\n
+comment2.params=artist
+comment2.target=void\ setArtist(java.lang.String)
+comment2.text=\r\n\ set\ artist\r\n\ @param\ artist\r\n
+comment3.params=
+comment3.target=int\ getReleaseYear()
+comment3.text=\r\n\ get\ release\ year\r\n\ @return\ releaseYear\r\n
+comment4.params=releaseYear
+comment4.target=void\ setReleaseYear(int)
+comment4.text=\r\n\ set\ releaseYear\r\n\ @param\ releaseYear\r\n
+comment5.params=
+comment5.target=java.lang.String\ getRecordLabel()
+comment5.text=\r\n\ get\ record\ label\r\n\ @return\ recordLabel\r\n
+comment6.params=recordLabel
+comment6.target=void\ setRecordLabel(java.lang.String)
+comment6.text=\r\n\ set\ record\ label\r\n\ @param\ recordLabel\r\n
+comment7.params=
+comment7.target=int\ getArchiveNumber()
+comment8.params=archiveNumber
+comment8.target=void\ setArchiveNumber(int)
+numComments=9

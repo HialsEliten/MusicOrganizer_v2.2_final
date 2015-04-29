@@ -19,6 +19,7 @@ public class MainFrameOlav extends javax.swing.JFrame {
      */
     
     TrackOrganizer trackOrganizer;
+ 
     
     public MainFrameOlav() {
         trackOrganizer = new TrackOrganizer();
@@ -43,8 +44,12 @@ public class MainFrameOlav extends javax.swing.JFrame {
         addMediumPanel = new javax.swing.JPanel();
         addCD = new javax.swing.JButton();
         listArchive = new javax.swing.JButton();
+        listCDArchive = new javax.swing.JButton();
+        jTabbedPane1 = new javax.swing.JTabbedPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         list = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        CDlist = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,15 +83,31 @@ public class MainFrameOlav extends javax.swing.JFrame {
         );
 
         listArchive.setText("List all tracks");
+        listArchive.setToolTipText("");
         listArchive.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listArchiveActionPerformed(evt);
             }
         });
 
+        listCDArchive.setText("List CD archive");
+        listCDArchive.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                listCDArchiveActionPerformed(evt);
+            }
+        });
+
         list.setModel(new MusicTableModel(trackOrganizer)
         );
         jScrollPane1.setViewportView(list);
+
+        jTabbedPane1.addTab("Tracks", jScrollPane1);
+
+        CDlist.setModel(new CDTableModel(trackOrganizer)
+        );
+        jScrollPane2.setViewportView(CDlist);
+
+        jTabbedPane1.addTab("tab2", jScrollPane2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,9 +121,12 @@ public class MainFrameOlav extends javax.swing.JFrame {
                         .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(listArchive))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 559, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(listArchive)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(listCDArchive)))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,9 +139,11 @@ public class MainFrameOlav extends javax.swing.JFrame {
                         .addComponent(addMediumPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(45, 45, 45)
-                        .addComponent(listArchive)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(listArchive)
+                            .addComponent(listCDArchive))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -139,11 +165,18 @@ public class MainFrameOlav extends javax.swing.JFrame {
     private void listArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listArchiveActionPerformed
         // TODO add your handling code here:
        list.setVisible(true);
+    
+       
 
         
         
       
     }//GEN-LAST:event_listArchiveActionPerformed
+
+    private void listCDArchiveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listCDArchiveActionPerformed
+        // TODO add your handling code here:
+        CDlist.setVisible(true);
+    }//GEN-LAST:event_listCDArchiveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -181,11 +214,15 @@ public class MainFrameOlav extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable CDlist;
     private javax.swing.JButton addCD;
     private javax.swing.JButton addMedium;
     private javax.swing.JPanel addMediumPanel;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable list;
     private javax.swing.JButton listArchive;
+    private javax.swing.JButton listCDArchive;
     // End of variables declaration//GEN-END:variables
 }

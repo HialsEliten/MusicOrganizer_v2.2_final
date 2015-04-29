@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=title\ type\ archiveNumber
+comment0.target=Tape(java.lang.String,\ java.lang.String,\ int)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Tape\r\n
+comment1.params=
+comment1.target=java.lang.String\ getType()
+comment1.text=\r\n\ get\ the\ type\ of\ tape\r\n\ @return\ type\r\n
+comment2.params=type
+comment2.target=void\ setType(java.lang.String)
+comment2.text=\r\n\ set\ type\ of\ tape\r\n\ @param\ type\ (analog/digital)\r\n
+comment3.params=
+comment3.target=int\ getArchiveNumber()
+comment3.text=\r\n\ get\ the\ objects\ number\ in\ the\ archive\r\n\ @return\ archiveNumber\r\n
+comment4.params=archiveNumber
+comment4.target=void\ setArchiveNumber(int)
+comment4.text=\r\n\ set\ a\ new\ archive\ number\r\n\ @param\ archiveNumber\ \r\n
+numComments=5

@@ -11,13 +11,14 @@ import javax.swing.table.AbstractTableModel;
  *
  * @author Olav Rune
  */
-public class MediumTableModel extends AbstractTableModel {
+public class CDTableModel extends AbstractTableModel {
     
-    private String[] columnNames = {"Title", "Artist", "Album"}; //same as before...
+    private String[] columnNames = {"Title", "Artist", "Release year", "Record Label", "Archive number"}; //same as before...
+   
     private TrackOrganizer trackOrganizer;
 
     
-    public MediumTableModel( TrackOrganizer trackOrganizer )
+    public CDTableModel(TrackOrganizer trackOrganizer)
     {
         super();
         this.trackOrganizer = trackOrganizer;
@@ -28,7 +29,9 @@ public class MediumTableModel extends AbstractTableModel {
     }
 
     public int getRowCount() {
-        return this.trackOrganizer.getNumberOfTracks();
+        int returnNumb = this.trackOrganizer.getNumberOfMediums();
+        //System.out.println(returnNumb);
+        return returnNumb;
     }
 
     public String getColumnName(int col) {
@@ -37,29 +40,46 @@ public class MediumTableModel extends AbstractTableModel {
 
     public Object getValueAt(int row, int col) {
         String result = "";
-        Music musicTrack = null;
+        CD CdMedium = null;
         // First get the audiotrack corresponding to the row-number
-        if(trackOrganizer.getTrackAt(row)instanceof Music) {
-        musicTrack  = ((Music)this.trackOrganizer.getTrackAt(row));
+        
+       
+        
+        if(trackOrganizer.getMediaAt(row)instanceof CD) {
+            
+         CdMedium  = ((CD)this.trackOrganizer.getMediaAt(row));
+         //CdMedium = ((CD)this.trackOrganizer.ge)
         }
         
-        if (null != musicTrack)
+        if (null != CdMedium)
         { 
             switch( col )
             {
                 case 0:
-                   result = musicTrack.getTitle();
+                   //result = musicTrack.getTitle();
+                   result = CdMedium.getTitle();
                    
                     break;
                     
                 case 1:
-                    result = musicTrack.getArtist();
+                    //result = musicTrack.getArtist();
+                    result = CdMedium.getArtist();
                    
                     break;
                 case 2:
-                    result = musicTrack.getAlbumAsString();
+                    //result = musicTrack.getAlbumAsString();
+                    result = "" +CdMedium.getReleaseYear();
                    
                     break;
+                    
+                case 3:
+                    result = CdMedium.getRecordLabel();
+                    break;
+                    
+                case 4:
+                    result = "" + CdMedium.getArchiveNumber();
+                    break;
+                    
                 default:
                     result = "UNKNOWN";
                     break;

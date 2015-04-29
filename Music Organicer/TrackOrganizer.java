@@ -62,6 +62,14 @@ public class TrackOrganizer {
     public int getNumberOfTracks() {
         return this.trackArchive.getNumberOfTracks();
     }
+    
+    public int getNumberOfMediums(){
+        
+        int returnNumb;
+        returnNumb =  this.mediumArchive.getNumberOfMediums();
+        System.out.println(returnNumb);
+        return returnNumb;
+    }
 
     /**
      * Return a AudioTrack
@@ -148,7 +156,7 @@ public class TrackOrganizer {
      * @param archiveNumber
      */
     public void addMusicTrack(String title, long minutes, long seconds, String artist, int date, int timesPlayed, int archiveNumber) {
-        Medium medium = mediumArchive.getMediumAt(archiveNumber);
+        Medium medium = mediumArchive.getMediumAtArchiveNumber(archiveNumber);
         if (medium != null) {
             Music music = new Music(title, minutes, seconds, artist, date, timesPlayed, medium);
             trackArchive.addTrack(music);
@@ -227,9 +235,17 @@ public class TrackOrganizer {
      * @param index
      * @return null if the medium doesn't exist
      */
-    public Medium getMediaAt(int index) {
-        return mediumArchive.getMediumAt(index);
+    public Medium getMediaAtArchiveNumber(int index) {
+        return mediumArchive.getMediumAtArchiveNumber(index);
     }
+    
+    public Medium getMediaAt(int index) {
+    
+        return mediumArchive.getMediumAt(index);
+        
+    }
+    
+    
     public String listAllTracks()
     {
        return trackArchive.listAllTracks();
@@ -239,6 +255,7 @@ public class TrackOrganizer {
     {
         System.out.println("PizzaBurger");
     }
+    
     
     public void makeArcive(){
         
@@ -252,6 +269,8 @@ public class TrackOrganizer {
         addCD("Harams symfoniorkester med støtte fra Tore på tuba", "LespeTrond", 2001, "HaramStudio", 10007);
         addCD("Harams bingomusikk", "Petter Pikk", 2009, "Balletronds musikkforening", 10008);
         addCD("Harams påskelåter", "Leif Live", 2003, "HaramStudio", 10009);
+        
+        addCD("kake", "kakeMonster", 0324, "hakf", 1);
        
         
        
