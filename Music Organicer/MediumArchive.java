@@ -18,6 +18,7 @@ public class MediumArchive
     public MediumArchive()
     {
         mediumArchive = new ArrayList<Medium>();
+        
     }
 
     
@@ -66,12 +67,12 @@ public class MediumArchive
      * 
      * @Return mediumArchive the list of mediums in archive (ArrayList<Medium>)
      */
-    public ArrayList<Medium> getMediumList(Medium mediumToRemove)
+    public ArrayList<Medium> getMediumList()
     {
         return this.mediumArchive;
     }
     
-    public Medium getMediumAt(int index)
+    public Medium getMediumAtArchiveNumber(int index)
     {
          Medium returnMedia = null;
         for(Medium media : mediumArchive)
@@ -89,6 +90,19 @@ public class MediumArchive
     public void removeAllTracksOnMedium(Medium mediumToRemove)
     {
         mediumToRemove.removeAllTracks();
+    }
+    
+    public int getNumberOfMediums(){
+        
+        return mediumArchive.size();
+    }
+    
+    public Medium getMediumAt(int index) {
+        
+        
+        return mediumArchive.get(index);
+        
+    
     }
     
     

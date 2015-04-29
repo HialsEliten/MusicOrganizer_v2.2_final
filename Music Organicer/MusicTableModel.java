@@ -11,6 +11,7 @@ public class MusicTableModel extends AbstractTableModel
 
     private String[] columnNames = {"Title", "Artist", "Album"}; //same as before...
     private TrackOrganizer trackOrganizer;
+    
 
     
     public MusicTableModel( TrackOrganizer trackOrganizer )
@@ -24,7 +25,9 @@ public class MusicTableModel extends AbstractTableModel
     }
 
     public int getRowCount() {
-        return this.trackOrganizer.getNumberOfTracks();
+       int returnNumb = this.trackOrganizer.getNumberOfTracks();
+        //System.out.println(returnNumb);
+        return returnNumb;
     }
 
     public String getColumnName(int col) {
