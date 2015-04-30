@@ -59,3 +59,5 @@ dist/Music_Organicer_NB_offline.jar
 *.ctxt
 *.xml
 *.class
+*.gif
+build/built-jar.properties

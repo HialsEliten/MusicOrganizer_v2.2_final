@@ -246,10 +246,11 @@ public class TrackOrganizer {
      * @param company
      */
     public void addAvertisingJingle(String title, long minutes, long seconds, int archiveNumber, String product, String company) {
-        Medium medium = mediumArchive.getMediumAt(archiveNumber);
+        Medium medium = mediumArchive.getMediumAtArchiveNumber(archiveNumber);
         if (medium != null) {
             AdvertisingJingle jingle = new AdvertisingJingle(title, minutes, seconds, medium, product, company);
             trackArchive.addTrack(jingle);
+            medium.addTrack(jingle);
         } else {
             System.out.println("The medium does not exist, shitface");
         }
@@ -269,7 +270,7 @@ public class TrackOrganizer {
      * @param dateBroadcasted
      */
     public void addNewsTrack(String title, long minutes, long seconds, int archiveNumber, String story, String journalist, int dateProduced, int dateBroadcasted) {
-        Medium medium = mediumArchive.getMediumAt(archiveNumber);
+        Medium medium = mediumArchive.getMediumAtArchiveNumber(archiveNumber);
         if (medium != null) {
             News newsTrack = new News(title, minutes, seconds, medium, story, journalist, dateProduced, dateBroadcasted);
             trackArchive.addTrack(newsTrack);
@@ -288,7 +289,7 @@ public class TrackOrganizer {
      * @param archiveNumber
      */
     public void addSoundEffect(String title, long minutes, long seconds, String description, int archiveNumber) {
-        Medium medium = mediumArchive.getMediumAt(archiveNumber);
+        Medium medium = mediumArchive.getMediumAtArchiveNumber(archiveNumber);
         if (medium != null) {
             SoundEffects sound = new SoundEffects(title, minutes, seconds, description, medium);
             trackArchive.addTrack(sound);
@@ -353,11 +354,13 @@ public class TrackOrganizer {
         addMusicTrack("the most awesome track ever", 3, 58, "Trude tran", 010315, timesPlayed, 10008);
         addMusicTrack("no title", 3, 02, artist, 100915, timesPlayed, 10005);
         addMusicTrack("kakevisa", 5, 31, artist, 120415, timesPlayed, 10002);
+        
         addAvertisingJingle("Reklame for flysokker", 5, 24, 10009, "Strykefrie flysokker", "NumTek, Strømpenes venn (strømper med ekte Nano(num)tek. Basert på studier utført av sogneForsk");
+       
         addAvertisingJingle("Reklame for softshelltruser", 0, 31, 10009, "Softshelltruser", "NumTek, Truser med ekte Nano(num)tek.");
         addNewsTrack("Dette er nyheter", 2, 55, 10009, "Slakklav Rune Nummedal, CEO for NumTek, tiltalt for skattesnylting", "VegRog", 55, 0);
         addSoundEffect("Svisj", 00 , 27, "Ekte sverd-svisj", 10009);
-        
+       
         
         
         
