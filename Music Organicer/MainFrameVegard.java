@@ -699,7 +699,7 @@ public class MainFrameVegard extends javax.swing.JFrame {
                   (recordLabelReady)&&
                    (archiveNumberReady))
         {
-        trackOrganizer.addLP(lpTitleVar, lpArtistVar, lpReleaseYearVar, cdRecordLabelVar, lpArchiveNumberVar);
+        trackOrganizer.addLP(lpTitle.getText(), lpArtist.getText(), lpReleaseYearVar, lpRecordLabel.getText(), lpArchiveNumberVar);
         lpError.setText("Tape Added!" + " Title: " + lpTitle.getText()
                         + " Artist: " + lpArtist.getText());
         lpTitle.setText(null);
