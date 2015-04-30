@@ -1,3 +1,4 @@
+
 import java.lang.Integer;
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -14,30 +15,33 @@ public class FrameAddMedium extends javax.swing.JFrame {
     private String cdTitleVar;
     private String cdArtistVar;
     private int cdReleaseYearVar;
-    private String cdRecordLabelVar;
+    private boolean cdReleaseYearReady;
     private int cdArchiveNumberVar;
+    private boolean cdArchiveNumberReady;
     //*****************************
     //*********LP Variables*********
-    private String lpTitleVar;
-    private String lpArtistVar;
     private int lpReleaseYearVar;
-    private String lpRecordLabelVar;
+    private boolean lpReleaseYearReady;
     private int lpArchiveNumberVar;
+    private boolean lpArchiveNumberReady;
     //********************************
     //**********HD Variables**********
     private String hdTitleVar;
     private String hdFilenameVar;
     private String hdFilepathVar;
     private int hdFilesizeVar;
+    private boolean hdFilesizeReady;
     //*******************************
     //********Tape Variables********
     private String tapeTitleVar;
     private boolean tapeTypeVar;
     private int tapeArchiveNumberVar;
+    private boolean tapeArchiveNumberReady;
     //******************************
-    
+
     private Integer integer;
     private TrackOrganizer trackOrganizer;
+
     /**
      * Creates new form MainFrameVegard
      */
@@ -140,6 +144,11 @@ public class FrameAddMedium extends javax.swing.JFrame {
                 cdArchiveNumberActionPerformed(evt);
             }
         });
+        cdArchiveNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cdArchiveNumberKeyReleased(evt);
+            }
+        });
 
         cdRecordLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -150,6 +159,11 @@ public class FrameAddMedium extends javax.swing.JFrame {
         cdReleaseYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cdReleaseYearActionPerformed(evt);
+            }
+        });
+        cdReleaseYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cdReleaseYearKeyReleased(evt);
             }
         });
 
@@ -246,6 +260,11 @@ public class FrameAddMedium extends javax.swing.JFrame {
                 lpArchiveNumberActionPerformed(evt);
             }
         });
+        lpArchiveNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lpArchiveNumberKeyReleased(evt);
+            }
+        });
 
         lpRecordLabel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -256,6 +275,11 @@ public class FrameAddMedium extends javax.swing.JFrame {
         lpReleaseYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lpReleaseYearActionPerformed(evt);
+            }
+        });
+        lpReleaseYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lpReleaseYearKeyReleased(evt);
             }
         });
 
@@ -366,6 +390,11 @@ public class FrameAddMedium extends javax.swing.JFrame {
                 tapeArchiveNumberActionPerformed(evt);
             }
         });
+        tapeArchiveNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                tapeArchiveNumberKeyReleased(evt);
+            }
+        });
 
         javax.swing.GroupLayout tapeFrameLayout = new javax.swing.GroupLayout(tapeFrame.getContentPane());
         tapeFrame.getContentPane().setLayout(tapeFrameLayout);
@@ -452,6 +481,11 @@ public class FrameAddMedium extends javax.swing.JFrame {
         hdFileSize.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hdFileSizeActionPerformed(evt);
+            }
+        });
+        hdFileSize.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                hdFileSizeKeyReleased(evt);
             }
         });
 
@@ -572,26 +606,29 @@ public class FrameAddMedium extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 /**
- * CD Title Field.
- * @param evt 
- */
+     * CD Title Field.
+     *
+     * @param evt
+     */
     private void cdTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdTitleActionPerformed
         // TODO add your handling code here:
-        this.cdTitleVar = cdTitle.getText();
+
     }//GEN-LAST:event_cdTitleActionPerformed
 
     /**
      * CD Artist Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void cdArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdArtistActionPerformed
         // TODO add your handling code here:
-        this.cdArtistVar = cdArtist.getText();
+
     }//GEN-LAST:event_cdArtistActionPerformed
 
     /**
      * CD Release Year Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void cdReleaseYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdReleaseYearActionPerformed
         // TODO add your handling code here:
@@ -601,127 +638,133 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * CD Record Label Field.
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void cdRecordLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdRecordLabelActionPerformed
         // TODO add your handling code here:
-        this.cdRecordLabelVar = cdRecordLabel.getText();
+
     }//GEN-LAST:event_cdRecordLabelActionPerformed
 
     /**
      * CD Archive Number Field.
-     * 
-     * @param evt 
+     *
+     * @param evt
      */
     private void cdArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cdArchiveNumberActionPerformed
         // TODO add your handling code here:
-        String tempString = cdArchiveNumber.getText();
-        cdArchiveNumberVar = integer.parseInt(tempString);
+
     }//GEN-LAST:event_cdArchiveNumberActionPerformed
 
     /**
      * LP Title Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void lpTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lpTitleActionPerformed
         // TODO add your handling code here:
-        this.lpTitleVar = lpTitle.getText();
+
     }//GEN-LAST:event_lpTitleActionPerformed
 
     /**
      * LP Artist Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void lpArtistActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lpArtistActionPerformed
         // TODO add your handling code here:
-        this.lpArtistVar = lpArtist.getText();
+
     }//GEN-LAST:event_lpArtistActionPerformed
 
     /**
      * LP Release Year Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void lpReleaseYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lpReleaseYearActionPerformed
-        // TODO add your handling code here:
-        String tempString = lpReleaseYear.getText();
-        lpReleaseYearVar = integer.parseInt(tempString);
+
     }//GEN-LAST:event_lpReleaseYearActionPerformed
 
     /**
      * LP Record Label Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void lpRecordLabelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lpRecordLabelActionPerformed
         // TODO add your handling code here:
-        this.lpRecordLabelVar = lpRecordLabel.getText();
+
     }//GEN-LAST:event_lpRecordLabelActionPerformed
 
     /**
      * LP Archive Number Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void lpArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lpArchiveNumberActionPerformed
-        // TODO add your handling code here:
-        String tempString = lpArchiveNumber.getText();
-        lpArchiveNumberVar = integer.parseInt(tempString);
+
     }//GEN-LAST:event_lpArchiveNumberActionPerformed
-/**
- * LP Add Button.
- * @param evt 
- */
+    /**
+     * LP Add Button.
+     *
+     * @param evt
+     */
     private void addLpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addLpBtnActionPerformed
         // TODO add your handling code here:
+        System.out.println("Title: " + lpTitle.getText());
+        System.out.println("Artist: " + lpArtist.getText());
+        System.out.println("Record Label: " + lpRecordLabel.getText());
+        System.out.println("Release Year: " + lpReleaseYearVar);
+        System.out.println("Archive Number: " + lpArchiveNumberVar);
         boolean titleReady = true;
-        if(lpTitle.getText().isEmpty())
-        {
+        if (lpTitle.getText().isEmpty()) {
             lpError.setText("Error in Title Field!");
             titleReady = false;
         }
         boolean artistReady = true;
-        if(lpArtist.getText().isEmpty())
-        {
+        if (lpArtist.getText().isEmpty()) {
             lpError.setText("Error in Artist Field!");
             artistReady = false;
         }
         boolean releaseYearReady = true;
-        if(lpReleaseYear.getText().isEmpty())
-        {
+        if (lpReleaseYear.getText().isEmpty()) {
             lpError.setText("Error in Release Year Field!");
             releaseYearReady = false;
         }
         boolean recordLabelReady = true;
-        if(lpRecordLabel.getText().isEmpty())
-        {
+        if (lpRecordLabel.getText().isEmpty()) {
             lpError.setText("Error in Record Label Field!");
             recordLabelReady = false;
         }
         boolean archiveNumberReady = true;
-        if(lpArchiveNumber.getText().isEmpty())
-        {
+        if (lpArchiveNumber.getText().isEmpty()) {
             lpError.setText("Error in Archive Number Field!");
             archiveNumberReady = false;
         }
-        if((titleReady)&&
-                (artistReady)&&
-                 (releaseYearReady)&&
-                  (recordLabelReady)&&
-                   (archiveNumberReady))
-        {
-        trackOrganizer.addLP(lpTitle.getText(), lpArtist.getText(), lpReleaseYearVar, lpRecordLabel.getText(), lpArchiveNumberVar);
-        lpError.setText("Tape Added!" + " Title: " + lpTitle.getText()
-                        + " Artist: " + lpArtist.getText());
-        lpTitle.setText(null);
-        lpArtist.setText(null);
-        lpReleaseYear.setText(null);
-        lpRecordLabel.setText(null);
-        lpArchiveNumber.setText(null);
+        if (!lpReleaseYearReady) {
+            lpError.setText("Wrong Input In Release Year Field!");
+        }
+        if ((titleReady)
+                && (artistReady)
+                && (releaseYearReady)
+                && (recordLabelReady)
+                && (archiveNumberReady)
+                && (this.lpReleaseYearReady)
+                && (this.lpArchiveNumberReady)) {
+            trackOrganizer.addLP(lpTitle.getText(), lpArtist.getText(), lpReleaseYearVar, lpRecordLabel.getText(), lpArchiveNumberVar);
+            lpError.setText("LP Added!" + " Title: " + lpTitle.getText()
+                    + " Artist: " + lpArtist.getText());
+            lpTitle.setText(null);
+            lpArtist.setText(null);
+            lpReleaseYear.setText(null);
+            lpRecordLabel.setText(null);
+            lpArchiveNumber.setText(null);
         }
     }//GEN-LAST:event_addLpBtnActionPerformed
 
     /**
      * Tape Analog Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void tapeAnaBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tapeAnaBtnActionPerformed
         // TODO add your handling code here:
@@ -731,7 +774,8 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * Tape Title Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void tapeTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tapeTitleActionPerformed
         // TODO add your handling code here:
@@ -740,7 +784,8 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * Tape Digital Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void tapeDigBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tapeDigBtnActionPerformed
         // TODO add your handling code here:
@@ -750,55 +795,51 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * Tape Archive Number Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void tapeArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tapeArchiveNumberActionPerformed
-        // TODO add your handling code here:
-        String tempString = tapeArchiveNumber.getText();
-        tapeArchiveNumberVar = integer.parseInt(tempString);
+
     }//GEN-LAST:event_tapeArchiveNumberActionPerformed
 
     /**
      * Tape Add Tape Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void tapeAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tapeAddBtnActionPerformed
         // TODO add your handling code here:
         String tapeType = "";
-        if(tapeTypeVar)
-        {
+        if (tapeTypeVar) {
             tapeType = "Digital";
         }
-        if(!tapeTypeVar)
-        {
+        if (!tapeTypeVar) {
             tapeType = "Analog";
         }
         boolean titleReady = true;
-        if(tapeTitle.getText().isEmpty())
-        {
+        if (tapeTitle.getText().isEmpty()) {
             tapeError.setText("Error in Title Field!");
             titleReady = false;
         }
         boolean archiveNumberReady = true;
-        if(tapeArchiveNumber.getText().isEmpty())
-        {
+        if (tapeArchiveNumber.getText().isEmpty()) {
             tapeError.setText("Error in Archive Number Field!");
             archiveNumberReady = false;
         }
-          
-        if((titleReady)&&(archiveNumberReady))
-        {
-        trackOrganizer.addTape(tapeTitleVar, tapeType, tapeArchiveNumberVar);
-        tapeError.setText("Tape Added!" + " Title: " + tapeTitle.getText()
-                            + " Tape Type: " + tapeType);
-        tapeTitle.setText(null);
-        tapeArchiveNumber.setText(null);
+
+        if ((titleReady) && (archiveNumberReady)&&(tapeArchiveNumberReady)) {
+            trackOrganizer.addTape(tapeTitle.getText(), tapeType, tapeArchiveNumberVar);
+            tapeError.setText("Tape Added!" + " Title: " + tapeTitle.getText()
+                    + " Tape Type: " + tapeType);
+            tapeTitle.setText(null);
+            tapeArchiveNumber.setText(null);
         }
     }//GEN-LAST:event_tapeAddBtnActionPerformed
 
     /**
      * HD Title Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void hdTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hdTitleActionPerformed
         // TODO add your handling code here:
@@ -807,7 +848,8 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * HD Filename Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void hdFilenameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hdFilenameActionPerformed
         // TODO add your handling code here:
@@ -816,7 +858,8 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * HD Filepath Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void hdFilepathActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hdFilepathActionPerformed
         // TODO add your handling code here:
@@ -825,62 +868,66 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * Hd Filesize Field.
-     * @param evt 
+     *
+     * @param evt
      */
     private void hdFileSizeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hdFileSizeActionPerformed
-        // TODO add your handling code here:
-        String tempString = hdFileSize.getText();
-        hdFilesizeVar = integer.parseInt(tempString);
+
     }//GEN-LAST:event_hdFileSizeActionPerformed
 
     /**
      * HD Add HD Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void hdAddBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hdAddBtnActionPerformed
         // TODO add your handling code here:
+        System.out.println("Title: " + hdTitle.getText());
+        System.out.println("Filename: " + hdFilename.getText());
+        System.out.println("Filepath: " + hdFilepath.getText());
+        System.out.println("Filesize: " + hdFilesizeVar);
         boolean titleReady = true;
-        if(hdTitle.getText().isEmpty())
-        {
+        if (hdTitle.getText().isEmpty()) {
             titleReady = false;
             hdError.setText("Error in Title Field!");
         }
         boolean filenameReady = true;
-        if(hdFilename.getText().isEmpty())
-        {
+        if (hdFilename.getText().isEmpty()) {
             filenameReady = false;
             hdError.setText("Error in Filename Field!");
         }
         boolean filepathReady = true;
-        if(hdFilepath.getText().isEmpty())
-        {
+        if (hdFilepath.getText().isEmpty()) {
             filepathReady = false;
             hdError.setText("Error in Filepath Field!");
         }
         boolean filesizeReady = true;
-        if(hdFileSize.getText().isEmpty())
-        {
+        if (hdFileSize.getText().isEmpty()) {
             filesizeReady = false;
             hdError.setText("Error in Filesize Field!");
         }
-        if((titleReady)&&
-                (filenameReady)&&
-                 (filepathReady)&&
-                  (filesizeReady))
-        {
-        trackOrganizer.addHD(hdTitleVar, hdFilenameVar, hdFilepathVar, hdFilesizeVar);
-        hdError.setText("HD Added!" + " Title: " + hdTitle.getText()
-                        + " Filename: " + hdFilename.getText());
-        hdTitle.setText(null);
-        hdFilename.setText(null);
-        hdFilepath.setText(null);
-        hdFileSize.setText(null);
+        if (!this.hdFilesizeReady) {
+            hdError.setText("Wrong Input In Filesize Field!");
+        }
+        if ((titleReady)
+                && (filenameReady)
+                && (filepathReady)
+                && (filesizeReady)
+                && (this.hdFilesizeReady)) {
+            trackOrganizer.addHD(hdTitle.getText(), hdFilename.getText(), hdFilepath.getText(), hdFilesizeVar);
+            hdError.setText("HD Added!" + " Title: " + hdTitle.getText()
+                    + " Filename: " + hdFilename.getText());
+            hdTitle.setText(null);
+            hdFilename.setText(null);
+            hdFilepath.setText(null);
+            hdFileSize.setText(null);
         }
     }//GEN-LAST:event_hdAddBtnActionPerformed
 
     /**
      * Frame Add Cd Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void frameAddCdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frameAddCdBtnActionPerformed
         // TODO add your handling code here:
@@ -890,19 +937,21 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * Frame Add Lp Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void frameAddLpBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frameAddLpBtnActionPerformed
         // TODO add your handling code here:
         lpFrame.setVisible(true);
         lpFrame.setSize(250, 400);
-        
+
     }//GEN-LAST:event_frameAddLpBtnActionPerformed
 
     /**
-     * 
+     *
      * Frame Add Tape Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void frameAddTapeBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frameAddTapeBtnActionPerformed
         // TODO add your handling code here:
@@ -913,7 +962,8 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * Frame Add HD Button.
-     * @param evt 
+     *
+     * @param evt
      */
     private void frameAddHdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_frameAddHdBtnActionPerformed
         // TODO add your handling code here:
@@ -923,7 +973,8 @@ public class FrameAddMedium extends javax.swing.JFrame {
 
     /**
      * CD Add CD.
-     * @param evt 
+     *
+     * @param evt
      */
     private void addCdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCdBtnActionPerformed
         // TODO add your handling code here:
@@ -932,57 +983,189 @@ public class FrameAddMedium extends javax.swing.JFrame {
         System.out.println("Release Date: " + cdReleaseYearVar);
         System.out.println("Record Label: " + cdRecordLabel.getText());
         System.out.println("Archive Number: " + cdArchiveNumberVar);
-        
+
         boolean titleReady = true;
-        if(cdTitle.getText().isEmpty())
-        {
+        if (cdTitle.getText().isEmpty()) {
             cdError.setText("Error in Title Field!");
             titleReady = false;
         }
         boolean artistReady = true;
-        if(cdArtist.getText().isEmpty())
-        {
+        if (cdArtist.getText().isEmpty()) {
             cdError.setText("Error in Artist Field!");
             artistReady = false;
         }
         boolean releaseYearReady = true;
-        if(cdReleaseYear.getText().isEmpty())
-        {
+        if (cdReleaseYear.getText().isEmpty()) {
             cdError.setText("Error in Release Year Field!");
             releaseYearReady = false;
         }
         boolean recordLabelReady = true;
-        if(cdRecordLabel.getText().isEmpty())
-        {
+        if (cdRecordLabel.getText().isEmpty()) {
             cdError.setText("Error in Record Label Field!");
             recordLabelReady = false;
         }
         boolean archiveNumberReady = true;
-        if(cdArchiveNumber.getText().isEmpty())
-        {
+        if (cdArchiveNumber.getText().isEmpty()) {
             cdError.setText("Error in Archive Number Field!");
             archiveNumberReady = false;
         }
-        if((titleReady)&&
-                (artistReady)&&
-                 (releaseYearReady)&&
-                  (recordLabelReady)&&
-                   (archiveNumberReady))
-        {
-        trackOrganizer.addCD(cdTitle.getText(), cdArtist.getText(), cdReleaseYearVar, cdRecordLabel.getText(), cdArchiveNumberVar);
-        cdError.setText("CD Added! " + "Title: " + cdTitle.getText()
-                        + "  Artist: "+ cdArtist.getText());
-        cdTitle.setText(null);
-        cdArtist.setText(null);
-        cdReleaseYear.setText(null);
-        cdRecordLabel.setText(null);
-        cdArchiveNumber.setText(null);
+        if (!this.cdReleaseYearReady) {
+            cdError.setText("Wrong Input In Release Year Field!");
+        }
+        if ((titleReady)
+                && (artistReady)
+                && (releaseYearReady)
+                && (recordLabelReady)
+                && (archiveNumberReady)
+                && (this.cdReleaseYearReady)
+                && (this.cdArchiveNumberReady)) {
+            trackOrganizer.addCD(cdTitle.getText(), cdArtist.getText(), cdReleaseYearVar, cdRecordLabel.getText(), cdArchiveNumberVar);
+            cdError.setText("CD Added! " + "Title: " + cdTitle.getText()
+                    + "  Artist: " + cdArtist.getText());
+            cdTitle.setText(null);
+            cdArtist.setText(null);
+            cdReleaseYear.setText(null);
+            cdRecordLabel.setText(null);
+            cdArchiveNumber.setText(null);
         }
     }//GEN-LAST:event_addCdBtnActionPerformed
 
     private void addCdBtnStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_addCdBtnStateChanged
         // TODO add your handling code here:
     }//GEN-LAST:event_addCdBtnStateChanged
+
+    /**
+     * CD Release Year Field.
+     *
+     * @param evt
+     */
+    private void cdReleaseYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cdReleaseYearKeyReleased
+        // TODO add your handling code here:
+        try {
+            cdError.setText(null);
+            String tempString = cdReleaseYear.getText();
+            int tempInt = integer.parseInt(tempString);
+            cdReleaseYearVar = tempInt;
+            this.cdReleaseYearReady = true;
+        } catch (NumberFormatException e) {
+            cdError.setText("Error in Minutes Field!");
+            this.cdReleaseYearReady = false;
+        }
+    }//GEN-LAST:event_cdReleaseYearKeyReleased
+
+    /**
+     * CD Archive Number Field.
+     *
+     * @param evt
+     */
+    private void cdArchiveNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cdArchiveNumberKeyReleased
+        // TODO add your handling code here:
+        try {
+            cdArchiveNumberReady = true;
+            String tempString = cdArchiveNumber.getText();
+            //System.out.println(tempString);
+            int tempInt = integer.parseInt(tempString);
+            cdArchiveNumberVar = tempInt;
+            if (trackOrganizer.getMediaAtArchiveNumber(cdArchiveNumberVar) != null) {
+                cdError.setText("Archive Number Already In Use!");
+                cdArchiveNumberReady = false;
+
+            } else if (trackOrganizer.getMediaAtArchiveNumber(cdArchiveNumberVar) == null) {
+                cdArchiveNumberReady = true;
+                cdError.setText(null);
+            }
+        } catch (NumberFormatException e) {
+            cdError.setText("Error in Archive Number!");
+
+        }
+    }//GEN-LAST:event_cdArchiveNumberKeyReleased
+
+    /**
+     * LP Archive Number Field.
+     *
+     * @param evt
+     */
+    private void lpArchiveNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lpArchiveNumberKeyReleased
+        // TODO add your handling code here:
+        try {
+           lpArchiveNumberReady = true;
+            String tempString = lpArchiveNumber.getText();
+            //System.out.println(tempString);
+            int tempInt = integer.parseInt(tempString);
+            lpArchiveNumberVar = tempInt;
+            if (trackOrganizer.getMediaAtArchiveNumber(lpArchiveNumberVar) != null) {
+                lpError.setText("Archive Number Already In Use!");
+                lpArchiveNumberReady = false;
+
+            } else if (trackOrganizer.getMediaAtArchiveNumber(lpArchiveNumberVar) == null) {
+                lpArchiveNumberReady = true;
+                lpError.setText(null);
+            }
+        } catch (NumberFormatException e) {
+            lpError.setText("Error in Archive Number!");
+
+        }
+    }//GEN-LAST:event_lpArchiveNumberKeyReleased
+
+    /**
+     * LP Release Year Field.
+     *
+     * @param evt
+     */
+    private void lpReleaseYearKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lpReleaseYearKeyReleased
+        // TODO add your handling code here:
+        try {
+            lpError.setText(null);
+            String tempString = lpReleaseYear.getText();
+            int tempInt = integer.parseInt(tempString);
+            lpReleaseYearVar = tempInt;
+            this.lpReleaseYearReady = true;
+        } catch (NumberFormatException e) {
+            lpError.setText("Error in Minutes Field!");
+            this.lpReleaseYearReady = false;
+        }
+    }//GEN-LAST:event_lpReleaseYearKeyReleased
+
+    private void tapeArchiveNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tapeArchiveNumberKeyReleased
+        // TODO add your handling code here:
+        try {
+           tapeArchiveNumberReady = true;
+            String tempString = tapeArchiveNumber.getText();
+            //System.out.println(tempString);
+            int tempInt = integer.parseInt(tempString);
+            tapeArchiveNumberVar = tempInt;
+            if (trackOrganizer.getMediaAtArchiveNumber(tapeArchiveNumberVar) != null) {
+                tapeError.setText("Archive Number Already In Use!");
+                tapeArchiveNumberReady = false;
+
+            } else if (trackOrganizer.getMediaAtArchiveNumber(tapeArchiveNumberVar) == null) {
+                tapeArchiveNumberReady = true;
+                tapeError.setText(null);
+            }
+        } catch (NumberFormatException e) {
+            tapeError.setText("Error in Archive Number!");
+
+        }
+    }//GEN-LAST:event_tapeArchiveNumberKeyReleased
+
+    /**
+     * HD Filesize Field.
+     *
+     * @param evt
+     */
+    private void hdFileSizeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_hdFileSizeKeyReleased
+        // TODO add your handling code here:
+        try {
+            hdError.setText(null);
+            String tempString = hdFileSize.getText();
+            int tempInt = integer.parseInt(tempString);
+            hdFilesizeVar = tempInt;
+            this.hdFilesizeReady = true;
+        } catch (NumberFormatException e) {
+            hdError.setText("Error in Minutes Field!");
+            this.hdFilesizeReady = false;
+        }
+    }//GEN-LAST:event_hdFileSizeKeyReleased
 
     /**
      * @param args the command line arguments

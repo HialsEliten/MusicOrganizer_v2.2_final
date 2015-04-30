@@ -117,6 +117,7 @@
         <Component class="javax.swing.JTextField" name="cdArchiveNumber">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cdArchiveNumberActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cdArchiveNumberKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="cdRecordLabel">
@@ -127,6 +128,7 @@
         <Component class="javax.swing.JTextField" name="cdReleaseYear">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cdReleaseYearActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cdReleaseYearKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="cdArtist">
@@ -255,6 +257,7 @@
         <Component class="javax.swing.JTextField" name="lpArchiveNumber">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lpArchiveNumberActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lpArchiveNumberKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="lpRecordLabel">
@@ -265,6 +268,7 @@
         <Component class="javax.swing.JTextField" name="lpReleaseYear">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lpReleaseYearActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lpReleaseYearKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="lpArtist">
@@ -399,6 +403,7 @@
         <Component class="javax.swing.JTextField" name="tapeArchiveNumber">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tapeArchiveNumberActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="tapeArchiveNumberKeyReleased"/>
           </Events>
         </Component>
       </SubComponents>
@@ -508,6 +513,7 @@
         <Component class="javax.swing.JTextField" name="hdFileSize">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="hdFileSizeActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="hdFileSizeKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="hdError">

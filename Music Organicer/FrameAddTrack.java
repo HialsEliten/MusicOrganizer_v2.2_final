@@ -1344,7 +1344,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
         System.out.println(tempString);
         int tempInt = integer.parseInt(tempString);
         musicArchiveNumberVar = tempInt;
-        if(trackOrganizer.getMediaAt(musicArchiveNumberVar) == null)
+        if(trackOrganizer.getMediaAtArchiveNumber(musicArchiveNumberVar) == null)
             musicError.setText("No media at archive number!");
             
         }
@@ -1454,7 +1454,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
         System.out.println(tempString);
         int tempInt = integer.parseInt(tempString);
         advertJingleArchiveNumberVar = tempInt;
-        if(trackOrganizer.getMediaAt(advertJingleArchiveNumberVar) == null)
+        if(trackOrganizer.getMediaAtArchiveNumber(advertJingleArchiveNumberVar) == null)
             advertJingleError.setText("No Media At Archive Number!");
             
         }
@@ -1564,7 +1564,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
         System.out.println(tempString);
         int tempInt = integer.parseInt(tempString);
         soundEffectsArchiveNumberVar = tempInt;
-        if(trackOrganizer.getMediaAt(soundEffectsArchiveNumberVar) == null)
+        if(trackOrganizer.getMediaAtArchiveNumber(soundEffectsArchiveNumberVar) == null)
             soundEffectsError.setText("No Media At Archive Number!");
             
         }
@@ -1674,7 +1674,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
         System.out.println(tempString);
         int tempInt = integer.parseInt(tempString);
         newsArchiveNumberVar = tempInt;
-        if(trackOrganizer.getMediaAt(newsArchiveNumberVar) == null)
+        if(trackOrganizer.getMediaAtArchiveNumber(newsArchiveNumberVar) == null)
             newsError.setText("No Media At Archive Number!");
             
         }
