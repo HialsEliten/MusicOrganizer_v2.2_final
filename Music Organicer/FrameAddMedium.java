@@ -9,7 +9,7 @@ import java.lang.Integer;
  *
  * @author Vegard Rogne
  */
-public class MainFrameVegard extends javax.swing.JFrame {
+public class FrameAddMedium extends javax.swing.JFrame {
 //**********CD Variables**********
     private String cdTitleVar;
     private String cdArtistVar;
@@ -41,10 +41,16 @@ public class MainFrameVegard extends javax.swing.JFrame {
     /**
      * Creates new form MainFrameVegard
      */
-    public MainFrameVegard() {
+    public FrameAddMedium() {
+      
+    
         initComponents();
-        trackOrganizer = new TrackOrganizer();
         
+    }
+    
+    public void setInputParameter(TrackOrganizer trackOrganizer) {
+        
+        this.trackOrganizer = trackOrganizer;
     }
 
     /**
@@ -108,6 +114,11 @@ public class MainFrameVegard extends javax.swing.JFrame {
         frameAddHdBtn = new javax.swing.JButton();
 
         addCdBtn.setText("Add CD");
+        addCdBtn.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                addCdBtnStateChanged(evt);
+            }
+        });
         addCdBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addCdBtnActionPerformed(evt);
@@ -502,8 +513,6 @@ public class MainFrameVegard extends javax.swing.JFrame {
                 .addComponent(hdError, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(19, Short.MAX_VALUE))
         );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         frameAddCdBtn.setText("Add CD");
         frameAddCdBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -971,6 +980,10 @@ public class MainFrameVegard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_addCdBtnActionPerformed
 
+    private void addCdBtnStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_addCdBtnStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addCdBtnStateChanged
+
     /**
      * @param args the command line arguments
      */
@@ -988,20 +1001,21 @@ public class MainFrameVegard extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainFrameVegard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAddMedium.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainFrameVegard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAddMedium.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainFrameVegard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAddMedium.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MainFrameVegard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrameAddMedium.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MainFrameVegard().setVisible(true);
+                new FrameAddMedium().setVisible(true);
             }
         });
     }

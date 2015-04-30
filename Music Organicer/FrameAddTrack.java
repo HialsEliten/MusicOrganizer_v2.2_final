@@ -63,8 +63,13 @@ public class FrameAddTrack extends javax.swing.JFrame {
      */
     public FrameAddTrack() {
         initComponents();  
-        trackOrganizer = new TrackOrganizer();
+       
         
+    }
+    
+    public void setInputParameter(TrackOrganizer trackOrganizer) {
+        
+        this.trackOrganizer = trackOrganizer;
     }
 
     /**
@@ -744,8 +749,6 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 .addComponent(newsError, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                 .addContainerGap())
         );
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         musicBtn.setText("Add Music");
         musicBtn.addActionListener(new java.awt.event.ActionListener() {
