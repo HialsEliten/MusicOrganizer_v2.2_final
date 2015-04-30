@@ -113,6 +113,7 @@
         <Component class="javax.swing.JTextField" name="musicMinutes">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="musicMinutesActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="musicMinutesKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel3">
@@ -123,6 +124,7 @@
         <Component class="javax.swing.JTextField" name="musicSeconds">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="musicSecondsActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="musicSecondsKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel4">
@@ -143,6 +145,7 @@
         <Component class="javax.swing.JTextField" name="musicDate">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="musicDateActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="musicDateKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel6">
@@ -152,7 +155,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="musicTimesPlayed">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="musicTimesPlayedActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="musicTimesPlayedKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel7">
@@ -173,6 +176,7 @@
         <Component class="javax.swing.JTextField" name="musicArchiveNumber">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="musicArchiveNumberActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="musicArchiveNumberKeyReleased"/>
           </Events>
         </Component>
       </SubComponents>
@@ -182,43 +186,50 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace min="0" pref="36" max="32767" attributes="0"/>
+                  <Component id="addAdvertJingleBtn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
+                      <Component id="advertJingleError" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel12" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel13" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="advertisingJingleTitle" pref="71" max="32767" attributes="0"/>
-                              <Component id="advertisingJingleMinutes" max="32767" attributes="0"/>
-                              <Component id="advertisingJingleSeconds" max="32767" attributes="0"/>
-                              <Component id="advertisingJingleProduct" max="32767" attributes="0"/>
-                              <Component id="advertisingJingleCompany" max="32767" attributes="0"/>
+                              <Component id="advertJingleArchiveNumber" pref="70" max="32767" attributes="0"/>
+                              <Component id="advertJingleCompany" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
-                          <Component id="addAdvertisingJingleBtn" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel11" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="98" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="advertJingleProduct" max="32767" attributes="0"/>
+                              <Component id="advertJingleSeconds" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="advertisingJingleArchiveNumber" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="101" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="advertJingleMinutes" max="32767" attributes="0"/>
+                              <Component id="advertJingleTitle" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
-                  <Component id="advertisingJingleError" min="-2" pref="163" max="-2" attributes="0"/>
-                  <EmptySpace pref="24" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -228,38 +239,38 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="advertisingJingleTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="advertJingleTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="advertisingJingleMinutes" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="advertJingleMinutes" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="advertisingJingleSeconds" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="advertJingleSeconds" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="advertisingJingleProduct" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="advertJingleProduct" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="advertisingJingleCompany" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="advertJingleCompany" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel13" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="advertisingJingleArchiveNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="advertJingleArchiveNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="addAdvertisingJingleBtn" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="advertisingJingleError" min="-2" pref="28" max="-2" attributes="0"/>
-                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <Component id="addAdvertJingleBtn" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="advertJingleError" min="-2" pref="28" max="-2" attributes="0"/>
+                  <EmptySpace pref="36" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -270,9 +281,9 @@
             <Property name="text" type="java.lang.String" value="Title:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="advertisingJingleTitle">
+        <Component class="javax.swing.JTextField" name="advertJingleTitle">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertisingJingleTitleActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertJingleTitleActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel9">
@@ -280,9 +291,10 @@
             <Property name="text" type="java.lang.String" value="Minutes:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="advertisingJingleMinutes">
+        <Component class="javax.swing.JTextField" name="advertJingleMinutes">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertisingJingleMinutesActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertJingleMinutesActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="advertJingleMinutesKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
@@ -290,9 +302,10 @@
             <Property name="text" type="java.lang.String" value="Seconds:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="advertisingJingleSeconds">
+        <Component class="javax.swing.JTextField" name="advertJingleSeconds">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertisingJingleSecondsActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertJingleSecondsActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="advertJingleSecondsKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -305,14 +318,14 @@
             <Property name="text" type="java.lang.String" value="Company:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="advertisingJingleProduct">
+        <Component class="javax.swing.JTextField" name="advertJingleProduct">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertisingJingleProductActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertJingleProductActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="advertisingJingleCompany">
+        <Component class="javax.swing.JTextField" name="advertJingleCompany">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertisingJingleCompanyActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertJingleCompanyActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel13">
@@ -320,19 +333,20 @@
             <Property name="text" type="java.lang.String" value="Medium Archive Number:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="addAdvertisingJingleBtn">
+        <Component class="javax.swing.JButton" name="addAdvertJingleBtn">
           <Properties>
             <Property name="text" type="java.lang.String" value="Add Advertising Jingle"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addAdvertisingJingleBtnActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addAdvertJingleBtnActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JLabel" name="advertisingJingleError">
+        <Component class="javax.swing.JLabel" name="advertJingleError">
         </Component>
-        <Component class="javax.swing.JTextField" name="advertisingJingleArchiveNumber">
+        <Component class="javax.swing.JTextField" name="advertJingleArchiveNumber">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertisingJingleArchiveNumberActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertJingleArchiveNumberActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="advertJingleArchiveNumberKeyReleased"/>
           </Events>
         </Component>
       </SubComponents>
@@ -365,7 +379,7 @@
                               <Group type="102" attributes="0">
                                   <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="soundEffectsMediumArchiveNumber" max="32767" attributes="0"/>
+                                  <Component id="soundEffectsArchiveNumber" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -413,7 +427,7 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="soundEffectsMediumArchiveNumber" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="soundEffectsArchiveNumber" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="addSoundEffectsBtn" min="-2" max="-2" attributes="0"/>
@@ -443,6 +457,7 @@
         <Component class="javax.swing.JTextField" name="soundEffectsMinutes">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="soundEffectsMinutesActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="soundEffectsMinutesKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel16">
@@ -453,6 +468,7 @@
         <Component class="javax.swing.JTextField" name="soundEffectsSeconds">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="soundEffectsSecondsActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="soundEffectsSecondsKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel17">
@@ -470,9 +486,10 @@
             <Property name="text" type="java.lang.String" value="Medium Archive Number:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="soundEffectsMediumArchiveNumber">
+        <Component class="javax.swing.JTextField" name="soundEffectsArchiveNumber">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="soundEffectsMediumArchiveNumberActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="soundEffectsArchiveNumberActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="soundEffectsArchiveNumberKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="addSoundEffectsBtn">
@@ -514,8 +531,8 @@
                               <Component id="newsStory" max="32767" attributes="0"/>
                               <Component id="newsJournalist" max="32767" attributes="0"/>
                               <Component id="newsDateProduced" max="32767" attributes="0"/>
-                              <Component id="newsDateBoardCasted" max="32767" attributes="0"/>
-                              <Component id="newsMediumArchiveNumber" max="32767" attributes="0"/>
+                              <Component id="newsDateBoardcasted" max="32767" attributes="0"/>
+                              <Component id="newsArchiveNumber" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" attributes="0">
@@ -568,11 +585,11 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="newsDateBoardCasted" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="newsDateBoardcasted" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="newsMediumArchiveNumber" min="-2" max="-2" attributes="0"/>
+                      <Component id="newsArchiveNumber" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel26" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -603,6 +620,7 @@
         <Component class="javax.swing.JTextField" name="newsMinutes">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsMinutesActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="newsMinutesKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
@@ -613,6 +631,7 @@
         <Component class="javax.swing.JTextField" name="newsSeconds">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsSecondsActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="newsSecondsKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
@@ -643,6 +662,7 @@
         <Component class="javax.swing.JTextField" name="newsDateProduced">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsDateProducedActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="newsDateProducedKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel25">
@@ -650,9 +670,10 @@
             <Property name="text" type="java.lang.String" value="Date Boardcasted:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="newsDateBoardCasted">
+        <Component class="javax.swing.JTextField" name="newsDateBoardcasted">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsDateBoardCastedActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsDateBoardcastedActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="newsDateBoardcastedKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel26">
@@ -660,9 +681,10 @@
             <Property name="text" type="java.lang.String" value="Medium Archive Number:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="newsMediumArchiveNumber">
+        <Component class="javax.swing.JTextField" name="newsArchiveNumber">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsMediumArchiveNumberActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsArchiveNumberActionPerformed"/>
+            <EventHandler event="keyReleased" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="newsArchiveNumberKeyReleased"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="addNewsBtn">
@@ -741,16 +763,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Advertising Jingle"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="advertisingJingleBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="soundEffectBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add Sound Effects"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="soundEffectBtnActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="newsBtn">
       <Properties>
         <Property name="text" type="java.lang.String" value="Add News"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="newsBtnActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

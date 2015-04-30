@@ -918,6 +918,11 @@ public class MainFrameVegard extends javax.swing.JFrame {
      */
     private void addCdBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addCdBtnActionPerformed
         // TODO add your handling code here:
+        System.out.println("Title: " + cdTitle.getText());
+        System.out.println("Artist: " + cdArtist.getText());
+        System.out.println("Release Date: " + cdReleaseYearVar);
+        System.out.println("Record Label: " + cdRecordLabel.getText());
+        System.out.println("Archive Number: " + cdArchiveNumberVar);
         
         boolean titleReady = true;
         if(cdTitle.getText().isEmpty())
@@ -955,7 +960,7 @@ public class MainFrameVegard extends javax.swing.JFrame {
                   (recordLabelReady)&&
                    (archiveNumberReady))
         {
-        trackOrganizer.addCD(cdTitleVar, cdArtistVar, cdReleaseYearVar, cdRecordLabelVar, cdArchiveNumberVar);
+        trackOrganizer.addCD(cdTitle.getText(), cdArtist.getText(), cdReleaseYearVar, cdRecordLabel.getText(), cdArchiveNumberVar);
         cdError.setText("CD Added! " + "Title: " + cdTitle.getText()
                         + "  Artist: "+ cdArtist.getText());
         cdTitle.setText(null);

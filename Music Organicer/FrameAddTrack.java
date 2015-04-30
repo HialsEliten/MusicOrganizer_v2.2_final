@@ -20,8 +20,42 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private int musicDateVar;
     private int musicTimesPlayedVar;
     private int musicArchiveNumberVar;
+    private boolean musicMediumReady = true;
+    private boolean musicMinutesReady;
+    private boolean musicSecondsReady;
+    private boolean musicTimedPlayedReady;
+    private boolean musicDateReady;
     //*******************************************
-   
+   //*************AdvertisingJingle Variables*****
+    private String advertJingleTitleVar;
+    private long advertJingleMinutesVar;
+    private long advertJingleSecondsVar;
+    private int advertJingleArchiveNumberVar;
+    private String advertJingleProductVar;
+    private String advertJingleCompanyVar;
+    private boolean advertJingleSecondsReady;
+    private boolean advertJingleMinutesReady;
+    //*******************************************
+    //**********SoundEffects Variables***********
+    private String soundsEffectsTitleVar;
+    private int soundEffectsMinutesVar;
+    private int soundEffectsSecondsVar;
+    private String soundEffectsDescriptionVar;
+    private int soundEffectsArchiveNumberVar;
+    private boolean soundEffectsSecondsReady;
+    private boolean soundEffectsMinutesReady;
+    //*******************************************
+    //***********News Variables******************
+    private boolean newsMinutesReady;
+    private int newsMinutesVar;
+    private boolean newsSecondsReady;
+    private int newsSecondsVar;
+    private int newsArchiveNumberVar;
+    private boolean newsDateProducedReady;
+    private int newsDateProducedVar;
+    private boolean newsDateBoardcastedReady;
+    private int newsDateBoardcastedVar;
+    //******************************************
 
     
     /**
@@ -30,6 +64,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     public FrameAddTrack() {
         initComponents();  
         trackOrganizer = new TrackOrganizer();
+        
     }
 
     /**
@@ -60,19 +95,19 @@ public class FrameAddTrack extends javax.swing.JFrame {
         musicArchiveNumber = new javax.swing.JTextField();
         advertisingJingleFrame = new javax.swing.JFrame();
         jLabel8 = new javax.swing.JLabel();
-        advertisingJingleTitle = new javax.swing.JTextField();
+        advertJingleTitle = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
-        advertisingJingleMinutes = new javax.swing.JTextField();
+        advertJingleMinutes = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
-        advertisingJingleSeconds = new javax.swing.JTextField();
+        advertJingleSeconds = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        advertisingJingleProduct = new javax.swing.JTextField();
-        advertisingJingleCompany = new javax.swing.JTextField();
+        advertJingleProduct = new javax.swing.JTextField();
+        advertJingleCompany = new javax.swing.JTextField();
         jLabel13 = new javax.swing.JLabel();
-        addAdvertisingJingleBtn = new javax.swing.JButton();
-        advertisingJingleError = new javax.swing.JLabel();
-        advertisingJingleArchiveNumber = new javax.swing.JTextField();
+        addAdvertJingleBtn = new javax.swing.JButton();
+        advertJingleError = new javax.swing.JLabel();
+        advertJingleArchiveNumber = new javax.swing.JTextField();
         soundEffectsFrame = new javax.swing.JFrame();
         jLabel14 = new javax.swing.JLabel();
         soundEffectsTitle = new javax.swing.JTextField();
@@ -83,7 +118,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
         jLabel17 = new javax.swing.JLabel();
         soundEffectsDescription = new javax.swing.JTextField();
         jLabel18 = new javax.swing.JLabel();
-        soundEffectsMediumArchiveNumber = new javax.swing.JTextField();
+        soundEffectsArchiveNumber = new javax.swing.JTextField();
         addSoundEffectsBtn = new javax.swing.JButton();
         soundEffectsError = new javax.swing.JLabel();
         newsFrame = new javax.swing.JFrame();
@@ -100,9 +135,9 @@ public class FrameAddTrack extends javax.swing.JFrame {
         jLabel24 = new javax.swing.JLabel();
         newsDateProduced = new javax.swing.JTextField();
         jLabel25 = new javax.swing.JLabel();
-        newsDateBoardCasted = new javax.swing.JTextField();
+        newsDateBoardcasted = new javax.swing.JTextField();
         jLabel26 = new javax.swing.JLabel();
-        newsMediumArchiveNumber = new javax.swing.JTextField();
+        newsArchiveNumber = new javax.swing.JTextField();
         addNewsBtn = new javax.swing.JButton();
         newsError = new javax.swing.JLabel();
         musicBtn = new javax.swing.JButton();
@@ -125,12 +160,22 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 musicMinutesActionPerformed(evt);
             }
         });
+        musicMinutes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                musicMinutesKeyReleased(evt);
+            }
+        });
 
         jLabel3.setText("Seconds:");
 
         musicSeconds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 musicSecondsActionPerformed(evt);
+            }
+        });
+        musicSeconds.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                musicSecondsKeyReleased(evt);
             }
         });
 
@@ -149,12 +194,17 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 musicDateActionPerformed(evt);
             }
         });
+        musicDate.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                musicDateKeyReleased(evt);
+            }
+        });
 
         jLabel6.setText("Times Played:");
 
-        musicTimesPlayed.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                musicTimesPlayedActionPerformed(evt);
+        musicTimesPlayed.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                musicTimesPlayedKeyReleased(evt);
             }
         });
 
@@ -170,6 +220,11 @@ public class FrameAddTrack extends javax.swing.JFrame {
         musicArchiveNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 musicArchiveNumberActionPerformed(evt);
+            }
+        });
+        musicArchiveNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                musicArchiveNumberKeyReleased(evt);
             }
         });
 
@@ -248,25 +303,35 @@ public class FrameAddTrack extends javax.swing.JFrame {
 
         jLabel8.setText("Title:");
 
-        advertisingJingleTitle.addActionListener(new java.awt.event.ActionListener() {
+        advertJingleTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                advertisingJingleTitleActionPerformed(evt);
+                advertJingleTitleActionPerformed(evt);
             }
         });
 
         jLabel9.setText("Minutes:");
 
-        advertisingJingleMinutes.addActionListener(new java.awt.event.ActionListener() {
+        advertJingleMinutes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                advertisingJingleMinutesActionPerformed(evt);
+                advertJingleMinutesActionPerformed(evt);
+            }
+        });
+        advertJingleMinutes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                advertJingleMinutesKeyReleased(evt);
             }
         });
 
         jLabel10.setText("Seconds:");
 
-        advertisingJingleSeconds.addActionListener(new java.awt.event.ActionListener() {
+        advertJingleSeconds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                advertisingJingleSecondsActionPerformed(evt);
+                advertJingleSecondsActionPerformed(evt);
+            }
+        });
+        advertJingleSeconds.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                advertJingleSecondsKeyReleased(evt);
             }
         });
 
@@ -274,30 +339,35 @@ public class FrameAddTrack extends javax.swing.JFrame {
 
         jLabel12.setText("Company:");
 
-        advertisingJingleProduct.addActionListener(new java.awt.event.ActionListener() {
+        advertJingleProduct.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                advertisingJingleProductActionPerformed(evt);
+                advertJingleProductActionPerformed(evt);
             }
         });
 
-        advertisingJingleCompany.addActionListener(new java.awt.event.ActionListener() {
+        advertJingleCompany.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                advertisingJingleCompanyActionPerformed(evt);
+                advertJingleCompanyActionPerformed(evt);
             }
         });
 
         jLabel13.setText("Medium Archive Number:");
 
-        addAdvertisingJingleBtn.setText("Add Advertising Jingle");
-        addAdvertisingJingleBtn.addActionListener(new java.awt.event.ActionListener() {
+        addAdvertJingleBtn.setText("Add Advertising Jingle");
+        addAdvertJingleBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addAdvertisingJingleBtnActionPerformed(evt);
+                addAdvertJingleBtnActionPerformed(evt);
             }
         });
 
-        advertisingJingleArchiveNumber.addActionListener(new java.awt.event.ActionListener() {
+        advertJingleArchiveNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                advertisingJingleArchiveNumberActionPerformed(evt);
+                advertJingleArchiveNumberActionPerformed(evt);
+            }
+        });
+        advertJingleArchiveNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                advertJingleArchiveNumberKeyReleased(evt);
             }
         });
 
@@ -305,36 +375,39 @@ public class FrameAddTrack extends javax.swing.JFrame {
         advertisingJingleFrame.getContentPane().setLayout(advertisingJingleFrameLayout);
         advertisingJingleFrameLayout.setHorizontalGroup(
             advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, advertisingJingleFrameLayout.createSequentialGroup()
+                .addGap(0, 36, Short.MAX_VALUE)
+                .addComponent(addAdvertJingleBtn)
+                .addGap(57, 57, 57))
             .addGroup(advertisingJingleFrameLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(advertisingJingleFrameLayout.createSequentialGroup()
+                    .addComponent(advertJingleError, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, advertisingJingleFrameLayout.createSequentialGroup()
                         .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel12)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel10)
-                            .addComponent(jLabel9)
-                            .addComponent(jLabel8))
+                            .addComponent(jLabel13))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(advertisingJingleTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE)
-                            .addComponent(advertisingJingleMinutes)
-                            .addComponent(advertisingJingleSeconds)
-                            .addComponent(advertisingJingleProduct)
-                            .addComponent(advertisingJingleCompany)))
-                    .addGroup(advertisingJingleFrameLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(addAdvertisingJingleBtn)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(advertisingJingleFrameLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(advertisingJingleArchiveNumber)))
+                            .addComponent(advertJingleArchiveNumber, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
+                            .addComponent(advertJingleCompany)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, advertisingJingleFrameLayout.createSequentialGroup()
+                        .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel10))
+                        .addGap(98, 98, 98)
+                        .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(advertJingleProduct)
+                            .addComponent(advertJingleSeconds)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, advertisingJingleFrameLayout.createSequentialGroup()
+                        .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8))
+                        .addGap(101, 101, 101)
+                        .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(advertJingleMinutes)
+                            .addComponent(advertJingleTitle))))
                 .addContainerGap())
-            .addGroup(advertisingJingleFrameLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(advertisingJingleError, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
         );
         advertisingJingleFrameLayout.setVerticalGroup(
             advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -342,32 +415,32 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(advertisingJingleTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(advertJingleTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(advertisingJingleMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(advertJingleMinutes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(advertisingJingleSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(advertJingleSeconds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(21, 21, 21)
                 .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(advertisingJingleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(advertJingleProduct, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
-                    .addComponent(advertisingJingleCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(advertJingleCompany, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(advertisingJingleFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
-                    .addComponent(advertisingJingleArchiveNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(advertJingleArchiveNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(addAdvertisingJingleBtn)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(advertisingJingleError, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addComponent(addAdvertJingleBtn)
+                .addGap(18, 18, 18)
+                .addComponent(advertJingleError, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(36, Short.MAX_VALUE))
         );
 
         jLabel14.setText("Title:");
@@ -385,12 +458,22 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 soundEffectsMinutesActionPerformed(evt);
             }
         });
+        soundEffectsMinutes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                soundEffectsMinutesKeyReleased(evt);
+            }
+        });
 
         jLabel16.setText("Seconds:");
 
         soundEffectsSeconds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 soundEffectsSecondsActionPerformed(evt);
+            }
+        });
+        soundEffectsSeconds.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                soundEffectsSecondsKeyReleased(evt);
             }
         });
 
@@ -404,9 +487,14 @@ public class FrameAddTrack extends javax.swing.JFrame {
 
         jLabel18.setText("Medium Archive Number:");
 
-        soundEffectsMediumArchiveNumber.addActionListener(new java.awt.event.ActionListener() {
+        soundEffectsArchiveNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                soundEffectsMediumArchiveNumberActionPerformed(evt);
+                soundEffectsArchiveNumberActionPerformed(evt);
+            }
+        });
+        soundEffectsArchiveNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                soundEffectsArchiveNumberKeyReleased(evt);
             }
         });
 
@@ -441,7 +529,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
                             .addGroup(soundEffectsFrameLayout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(soundEffectsMediumArchiveNumber))))
+                                .addComponent(soundEffectsArchiveNumber))))
                     .addGroup(soundEffectsFrameLayout.createSequentialGroup()
                         .addGroup(soundEffectsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(soundEffectsFrameLayout.createSequentialGroup()
@@ -475,7 +563,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(soundEffectsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(soundEffectsMediumArchiveNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(soundEffectsArchiveNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addSoundEffectsBtn)
                 .addGap(18, 18, 18)
@@ -498,12 +586,22 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 newsMinutesActionPerformed(evt);
             }
         });
+        newsMinutes.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                newsMinutesKeyReleased(evt);
+            }
+        });
 
         jLabel21.setText("Seconds:");
 
         newsSeconds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 newsSecondsActionPerformed(evt);
+            }
+        });
+        newsSeconds.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                newsSecondsKeyReleased(evt);
             }
         });
 
@@ -530,20 +628,35 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 newsDateProducedActionPerformed(evt);
             }
         });
+        newsDateProduced.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                newsDateProducedKeyReleased(evt);
+            }
+        });
 
         jLabel25.setText("Date Boardcasted:");
 
-        newsDateBoardCasted.addActionListener(new java.awt.event.ActionListener() {
+        newsDateBoardcasted.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newsDateBoardCastedActionPerformed(evt);
+                newsDateBoardcastedActionPerformed(evt);
+            }
+        });
+        newsDateBoardcasted.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                newsDateBoardcastedKeyReleased(evt);
             }
         });
 
         jLabel26.setText("Medium Archive Number:");
 
-        newsMediumArchiveNumber.addActionListener(new java.awt.event.ActionListener() {
+        newsArchiveNumber.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                newsMediumArchiveNumberActionPerformed(evt);
+                newsArchiveNumberActionPerformed(evt);
+            }
+        });
+        newsArchiveNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                newsArchiveNumberKeyReleased(evt);
             }
         });
 
@@ -579,8 +692,8 @@ public class FrameAddTrack extends javax.swing.JFrame {
                             .addComponent(newsStory)
                             .addComponent(newsJournalist)
                             .addComponent(newsDateProduced)
-                            .addComponent(newsDateBoardCasted)
-                            .addComponent(newsMediumArchiveNumber)))
+                            .addComponent(newsDateBoardcasted)
+                            .addComponent(newsArchiveNumber)))
                     .addGroup(newsFrameLayout.createSequentialGroup()
                         .addGap(71, 71, 71)
                         .addComponent(addNewsBtn)
@@ -620,10 +733,10 @@ public class FrameAddTrack extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(newsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel25)
-                    .addComponent(newsDateBoardCasted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(newsDateBoardcasted, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(newsFrameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(newsMediumArchiveNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(newsArchiveNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel26))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(addNewsBtn)
@@ -642,10 +755,25 @@ public class FrameAddTrack extends javax.swing.JFrame {
         });
 
         advertisingJingleBtn.setText("Add Advertising Jingle");
+        advertisingJingleBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                advertisingJingleBtnActionPerformed(evt);
+            }
+        });
 
         soundEffectBtn.setText("Add Sound Effects");
+        soundEffectBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                soundEffectBtnActionPerformed(evt);
+            }
+        });
 
         newsBtn.setText("Add News");
+        newsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newsBtnActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -683,6 +811,14 @@ public class FrameAddTrack extends javax.swing.JFrame {
      */
     private void addMusicBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMusicBtnActionPerformed
         // TODO add your handling code here:
+        System.out.println("Title: " + musicTitle.getText());
+        System.out.println("Minutt:" + musicMinutesVar);
+        System.out.println("Sek: " + musicSecondsVar);
+        System.out.println("Artist: " + musicArtist.getText());
+        System.out.println("Date: " + musicDateVar);
+        System.out.println("Times Played: " + musicTimesPlayedVar);
+        System.out.println("Archive Number: " + musicArchiveNumberVar);
+        this.musicMediumReady = true;
         boolean titleReady = true;
         if(musicTitle.getText().isEmpty())
         {
@@ -725,15 +861,46 @@ public class FrameAddTrack extends javax.swing.JFrame {
             musicError.setText("Error in Medium Archive Number Field!");
             mediumArchiveNumber = false;
         }
+        if(trackOrganizer.getMediaAt(musicArchiveNumberVar) == null)
+        {
+            this.musicMediumReady = false;
+        }
+        
+        if(!this.musicMinutesReady)
+        {
+            musicError.setText("Wrong Input In Minutes Field!");
+        }
+        if(!this.musicSecondsReady)
+        {
+            musicError.setText("Wrong Input In Seconds Field!");
+        }
+        if(!this.musicTimedPlayedReady)
+        {
+            musicError.setText("Wrong Input In Times Played Field!");
+        }
+        if(!this.musicDateReady)
+        {
+            musicError.setText("Wrong Input In Date Field!");
+        }
+            
+        
+        
         if((titleReady)&&                   //Checks if input from title field is valid.
                 (minutesReady)&&            //Checks if input from Minutes field is valid.
                  (secondsReady)&&           //Checks if input from Seconds field is valid.
                   (artistReady)&&           //Checks if input from Artist field is valid.
                    (dateReady)&&            //Checks if input from Date field is valid.
                     (timesPlayedReady)&&    //Checks if input from Times Played field is valid.
-                     (mediumArchiveNumber)) //Checks if input from title Archive Number is valid.
-        {
-            trackOrganizer.addMusicTrack(musicTitleVar, musicMinutesVar, musicSecondsVar, musicArtistVar, musicDateVar, musicTimesPlayedVar, musicArchiveNumberVar);
+                     (mediumArchiveNumber)&&//Checks if input from archive number is valid.
+                        (musicMediumReady)&& //Checks if there are any mediums with that archive number.
+                          (this.musicMinutesReady)&&
+                            (this.musicSecondsReady)&&
+                              (this.musicTimedPlayedReady)&&
+                                (this.musicDateReady))
+                
+                
+            {
+            trackOrganizer.addMusicTrack(musicTitle.getText(), musicMinutesVar, musicSecondsVar, musicArtist.getText(), musicDateVar, musicTimesPlayedVar, musicArchiveNumberVar);
             musicError.setText("Music Track Added!" + " Title: " + musicTitle.getText()
                             +" Artist: " + musicArtist.getText());
             musicTitle.setText(null);
@@ -747,54 +914,12 @@ public class FrameAddTrack extends javax.swing.JFrame {
     }//GEN-LAST:event_addMusicBtnActionPerformed
 
     /**
-     * Music Archive Number Field.
-     * @param evt 
-     */
-    private void musicArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicArchiveNumberActionPerformed
-        // TODO add your handling code here:
-        try{
-        String tempString = musicArchiveNumber.getText();
-        int tempInt = integer.parseInt(tempString);
-        musicArchiveNumberVar = tempInt;
-        }
-        catch(NumberFormatException e)
-        {
-            musicError.setText("Error in Archive Number Error!");
-        }
-    }//GEN-LAST:event_musicArchiveNumberActionPerformed
-
-    /**
-     * Music Times Played Field.
-     * @param evt 
-     */
-    private void musicTimesPlayedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicTimesPlayedActionPerformed
-        // TODO add your handling code here:
-        try{
-        String tempString = musicTimesPlayed.getText();
-        int tempInt = integer.parseInt(tempString);
-        musicTimesPlayedVar = tempInt;
-        }
-        catch(NumberFormatException e)
-        {
-            musicError.setText("Error in Timed Played Field!");
-        }
-    }//GEN-LAST:event_musicTimesPlayedActionPerformed
-
-    /**
      * Music Date Field.
      * @param evt 
      */
     private void musicDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicDateActionPerformed
         // TODO add your handling code here:
-        try{
-        String tempString = musicDate.getText();
-        int tempInt = integer.parseInt(tempString);
-        musicDateVar = tempInt;
-        }
-        catch(NumberFormatException e)
-        {
-            musicError.setText("Error in Date Field!");
-        }
+        
     }//GEN-LAST:event_musicDateActionPerformed
 
     /**
@@ -812,35 +937,9 @@ public class FrameAddTrack extends javax.swing.JFrame {
      */
     private void musicSecondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicSecondsActionPerformed
         // TODO add your handling code here:
-        try{
-        String tempString = musicSeconds.getText();
-        int tempInt = integer.parseInt(tempString);
-        musicSecondsVar = tempInt;
-        }
-        catch(NumberFormatException e)
-        {
-            musicError.setText("Error in seconds Field!");
-        }
+        
         
     }//GEN-LAST:event_musicSecondsActionPerformed
-
-    /**
-     * Music Minutes Field.
-     * @param evt 
-     */
-    private void musicMinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicMinutesActionPerformed
-        // TODO add your handling code here:
-        try{
-        String tempString = musicMinutes.getText();
-        int tempInt = integer.parseInt(tempString);
-        musicMinutesVar = tempInt;
-        }
-        catch(NumberFormatException e)
-        {
-            musicError.setText("Error in Minutes Field!");
-        }
-             
-    }//GEN-LAST:event_musicMinutesActionPerformed
 
     /**
      * Music Title Field.
@@ -855,57 +954,136 @@ public class FrameAddTrack extends javax.swing.JFrame {
      * AdvertisingJingle Title Field.
      * @param evt 
      */
-    private void advertisingJingleTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertisingJingleTitleActionPerformed
+    private void advertJingleTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertJingleTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_advertisingJingleTitleActionPerformed
+        this.advertJingleTitleVar = advertJingleTitle.getText();
+    }//GEN-LAST:event_advertJingleTitleActionPerformed
 
     /**
      * AdvertisingJingle Minutes Field.
      * @param evt 
      */
-    private void advertisingJingleMinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertisingJingleMinutesActionPerformed
+    private void advertJingleMinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertJingleMinutesActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_advertisingJingleMinutesActionPerformed
+    }//GEN-LAST:event_advertJingleMinutesActionPerformed
 
     /**
      * AdvertisingJingle Seconds Field.
      * @param evt 
      */
-    private void advertisingJingleSecondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertisingJingleSecondsActionPerformed
+    private void advertJingleSecondsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertJingleSecondsActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_advertisingJingleSecondsActionPerformed
+    }//GEN-LAST:event_advertJingleSecondsActionPerformed
 
     /**
      * AdvertisingJingle Product Field.
      * @param evt 
      */
-    private void advertisingJingleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertisingJingleProductActionPerformed
+    private void advertJingleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertJingleProductActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_advertisingJingleProductActionPerformed
+        this.advertJingleProductVar = advertJingleProduct.getText();
+    }//GEN-LAST:event_advertJingleProductActionPerformed
 
     /**
      * AdvertisingJingle Company Field.
      * @param evt 
      */
-    private void advertisingJingleCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertisingJingleCompanyActionPerformed
+    private void advertJingleCompanyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertJingleCompanyActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_advertisingJingleCompanyActionPerformed
+        this.advertJingleCompanyVar = advertJingleCompany.getText();
+    }//GEN-LAST:event_advertJingleCompanyActionPerformed
 
     /**
      * AdvertisingJingle Archive Number Field.
      * @param evt 
      */
-    private void advertisingJingleArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertisingJingleArchiveNumberActionPerformed
+    private void advertJingleArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertJingleArchiveNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_advertisingJingleArchiveNumberActionPerformed
+        
+    }//GEN-LAST:event_advertJingleArchiveNumberActionPerformed
 
     /**
      * AdvertisingJingle Add AdvertisingJingle Button.
      * @param evt 
      */
-    private void addAdvertisingJingleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdvertisingJingleBtnActionPerformed
+    private void addAdvertJingleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addAdvertJingleBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_addAdvertisingJingleBtnActionPerformed
+        
+        System.out.println("Title: " + advertJingleTitle.getText());
+        System.out.println("Minutes: " + advertJingleMinutesVar );
+        System.out.println("Seconds: " + advertJingleSecondsVar);
+        System.out.println("Product: " + advertJingleProduct.getText());
+        System.out.println("Company: " + advertJingleCompany.getText());
+        System.out.println("Archive Number: " + advertJingleArchiveNumberVar);
+        if(!this.advertJingleMinutesReady)
+        {
+            advertJingleError.setText("Wrong Input In Minutes Field!");
+        }
+        if(!this.advertJingleSecondsReady)
+        {
+            advertJingleError.setText("Wrong Input In Seconds Field!");
+        }
+        
+            boolean titleReady = true;
+            if(advertJingleTitle.getText().isEmpty())
+            {
+                advertJingleError.setText("Error In Title Field!");
+                titleReady = false;
+            }
+            
+            boolean minutesReady = true;
+            if(advertJingleMinutes.getText().isEmpty())
+            {
+                advertJingleError.setText("Error In Minutes Field!");
+                minutesReady = false;
+            }
+            
+            boolean secondsReady = true;
+            if(advertJingleSeconds.getText().isEmpty())
+            {
+                advertJingleError.setText("Error in Seconds Field!");
+                secondsReady = false;
+            }
+            
+            boolean productReady = true;
+            if(advertJingleProduct.getText().isEmpty())
+            {
+                advertJingleError.setText("Error in Product Field!");
+                productReady = false;
+            }
+            boolean companyReady = true;
+            if(advertJingleCompany.getText().isEmpty())
+            {
+                advertJingleError.setText("Error in Company Field!");
+                companyReady = false;
+            }
+            boolean archiveNumberReady = true;
+            if(advertJingleArchiveNumber.getText().isEmpty())
+            {
+                advertJingleError.setText("Error in Archive Number Field!");
+                archiveNumberReady = false;
+            }
+            
+            if((titleReady)&&
+                    (minutesReady)&&
+                     (secondsReady)&&
+                      (productReady)&&
+                       (companyReady)&&
+                         (archiveNumberReady)&&
+                          (this.advertJingleSecondsReady)&&
+                            (this.advertJingleMinutesReady))
+            {
+                trackOrganizer.addAvertisingJingle(advertJingleTitle.getText(), advertJingleMinutesVar, advertJingleSecondsVar, advertJingleArchiveNumberVar, advertJingleProduct.getText(), advertJingleCompany.getText());
+                advertJingleError.setText("Advertising Jingle Added!" + " Title: " + advertJingleTitle.getText());
+            advertJingleTitle.setText(null);
+            advertJingleMinutes.setText(null);
+            advertJingleSeconds.setText(null);            
+            advertJingleProduct.setText(null);
+            advertJingleCompany.setText(null);
+            advertJingleArchiveNumber.setText(null);    
+            }
+        
+    }//GEN-LAST:event_addAdvertJingleBtnActionPerformed
 
     /**
      * SoundEffects Description Field.
@@ -922,15 +1100,63 @@ public class FrameAddTrack extends javax.swing.JFrame {
      */
     private void addSoundEffectsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addSoundEffectsBtnActionPerformed
         // TODO add your handling code here:
+        System.out.println("Title: "+ soundEffectsTitle.getText());
+        System.out.println("Minutes: " + soundEffectsMinutesVar);
+        System.out.println("Seconds: " + soundEffectsSecondsVar); 
+        System.out.println("Description: " + soundEffectsDescription.getText());
+        System.out.println("Archive Number: " + soundEffectsArchiveNumberVar);
+        boolean titleReady = true;
+        if(soundEffectsTitle.getText().isEmpty())
+        {
+            titleReady = false;
+            soundEffectsError.setText("Error in Title Field!");
+        }
+        boolean descriptionReady = true;
+        if(soundEffectsDescription.getText().isEmpty())
+        {
+            descriptionReady = false;
+            soundEffectsError.setText("Error In Descripion Field!");
+        }
+        boolean archiveNumberReady = true;
+        if(soundEffectsArchiveNumber.getText().isEmpty())
+        {
+            archiveNumberReady = false;
+            soundEffectsError.setText("Error in Archive Number Field!");
+        }
+        if(!this.soundEffectsMinutesReady)
+        {
+            soundEffectsError.setText("Wrong Input In Minutes Field!");
+        }
+        if(!this.soundEffectsSecondsReady)
+        {
+            soundEffectsError.setText("Wrong Input In Seconds Field!");
+        }
+        
+        if((titleReady)&&
+                (descriptionReady)&&
+                  (archiveNumberReady)&&
+                  (this.soundEffectsSecondsReady)&&
+                    (this.soundEffectsMinutesReady))
+        {
+            trackOrganizer.addSoundEffect(soundEffectsTitle.getText(), soundEffectsMinutesVar, soundEffectsSecondsVar, soundEffectsDescription.getText(), soundEffectsArchiveNumberVar);
+            soundEffectsError.setText("Sound Effects Added!" + " Title: " + soundEffectsTitle.getText());
+            soundEffectsTitle.setText(null);
+            soundEffectsMinutes.setText(null);
+            soundEffectsSeconds.setText(null);
+            soundEffectsDescription.setText(null);
+            soundEffectsArchiveNumber.setText(null);
+            
+        }
+        
     }//GEN-LAST:event_addSoundEffectsBtnActionPerformed
 
     /**
      * SoundEffects Medium Archive Number Field.
      * @param evt 
      */
-    private void soundEffectsMediumArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soundEffectsMediumArchiveNumberActionPerformed
+    private void soundEffectsArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soundEffectsArchiveNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_soundEffectsMediumArchiveNumberActionPerformed
+    }//GEN-LAST:event_soundEffectsArchiveNumberActionPerformed
 
     /**
      * SoundEffects Seconds Field.
@@ -962,23 +1188,97 @@ public class FrameAddTrack extends javax.swing.JFrame {
      */
     private void addNewsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewsBtnActionPerformed
         // TODO add your handling code here:
+             
+        System.out.println("Title: " + newsTitle.getText());
+        System.out.println("Minutes: " + newsMinutesVar);
+        System.out.println("Seconds: " + newsSecondsVar);
+        System.out.println("Archive Number: " + newsArchiveNumberVar);
+        System.out.println("Story: " + newsStory.getText());
+        System.out.println("Journalist: " + newsJournalist.getText());
+        System.out.println("Date Produced: " + newsDateProducedVar);
+        System.out.println("Date Boardcasted: " + newsDateBoardcastedVar);
+        
+        
+        
+         boolean journalistReady = true;
+         if(newsJournalist.getText().isEmpty())
+         {
+             newsError.setText("Error In Journalist Field!");
+             journalistReady = false;
+         }
+         boolean storyReady = true;
+         if(newsStory.getText().isEmpty())
+         {
+             newsError.setText("Error In Story Field!");
+             storyReady = false;
+         }
+         boolean archiveNumberReady = true;
+         if(newsArchiveNumber.getText().isEmpty())
+         {
+             newsError.setText("Error In Archive Number Field!");
+             archiveNumberReady = false;
+         }
+         boolean titleReady = true;
+         if(newsTitle.getText().isEmpty())
+         {
+             newsError.setText("Error In Title Field!");
+             titleReady = false;
+         }
+         if(!this.newsMinutesReady)
+         {
+             newsError.setText("Wrong Input In Minutes Field!");
+         }
+         if(!this.newsSecondsReady)
+         {
+             newsError.setText("Wrong Input In Seconds Field!");
+         }
+         if(!this.newsDateProducedReady)
+         {
+             newsError.setText("Wrong Input In Date Produced Field!");
+         }
+         if(!this.newsDateBoardcastedReady)
+         {
+             newsError.setText("Wrong Input In Date Boardcasted Field!");
+         }
+        
+         if((journalistReady)&&
+                 (storyReady)&&
+                  (archiveNumberReady)&&
+                   (titleReady)&&
+                    (this.newsMinutesReady)&&
+                     (this.newsSecondsReady)&&
+                      (this.newsDateProducedReady)&&
+                        (this.newsDateBoardcastedReady))
+         {
+             trackOrganizer.addNewsTrack(newsTitle.getText(), newsMinutesVar, newsSecondsVar, newsArchiveNumberVar, newsStory.getText(), newsJournalist.getText(), newsDateProducedVar, newsDateBoardcastedVar);
+             newsError.setText("News Added! " + " Title: " + newsTitle.getText());
+             newsTitle.setText(null);
+             newsMinutes.setText(null);
+             newsSeconds.setText(null);
+             newsArchiveNumber.setText(null);
+             newsStory.setText(null);
+             newsJournalist.setText(null);
+             newsDateProduced.setText(null);
+             newsDateBoardcasted.setText(null);
+         }
+ 
     }//GEN-LAST:event_addNewsBtnActionPerformed
 
     /**
      * News Medium Archive Number Field.
      * @param evt 
      */
-    private void newsMediumArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newsMediumArchiveNumberActionPerformed
+    private void newsArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newsArchiveNumberActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_newsMediumArchiveNumberActionPerformed
+    }//GEN-LAST:event_newsArchiveNumberActionPerformed
 
     /**
      * News Date Boardcasted Field.
      * @param evt 
      */
-    private void newsDateBoardCastedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newsDateBoardCastedActionPerformed
+    private void newsDateBoardcastedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newsDateBoardcastedActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_newsDateBoardCastedActionPerformed
+    }//GEN-LAST:event_newsDateBoardcastedActionPerformed
 
     /**
      * News Date Produced Field.
@@ -1034,6 +1334,349 @@ public class FrameAddTrack extends javax.swing.JFrame {
         musicFrame.setSize(250, 450);
     }//GEN-LAST:event_musicBtnActionPerformed
 
+    private void musicArchiveNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicArchiveNumberKeyReleased
+    try{
+        musicError.setText(null);
+        String tempString = musicArchiveNumber.getText();
+        System.out.println(tempString);
+        int tempInt = integer.parseInt(tempString);
+        musicArchiveNumberVar = tempInt;
+        if(trackOrganizer.getMediaAt(musicArchiveNumberVar) == null)
+            musicError.setText("No media at archive number!");
+            
+        }
+        
+        catch(NumberFormatException e)
+        {
+            musicError.setText("Error in Archive Number!");
+            
+        }
+        
+    }//GEN-LAST:event_musicArchiveNumberKeyReleased
+
+    /**
+     * Music Minutes Field.
+     * @param evt 
+     */
+    private void musicMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicMinutesKeyReleased
+        // TODO add your handling code here:
+         try{
+        String tempString = musicMinutes.getText();
+        int tempInt = integer.parseInt(tempString);
+        musicMinutesVar = tempInt;
+        this.musicMinutesReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            musicError.setText("Error in Minutes Field!");
+            this.musicMinutesReady = false;
+        }
+            
+    }//GEN-LAST:event_musicMinutesKeyReleased
+
+    private void musicArchiveNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicArchiveNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_musicArchiveNumberActionPerformed
+/**
+ * Music Seconds Field.
+ * @param evt 
+ */
+    private void musicSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicSecondsKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = musicSeconds.getText();
+        int tempInt = integer.parseInt(tempString);
+        musicSecondsVar = tempInt;
+        this.musicSecondsReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            musicError.setText("Error in seconds Field!");
+            this.musicSecondsReady = false;
+            
+        }
+    }//GEN-LAST:event_musicSecondsKeyReleased
+
+    /**
+     * Music Date Field.
+     * @param evt 
+     */
+    private void musicDateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicDateKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = musicDate.getText();
+        int tempInt = integer.parseInt(tempString);
+        musicDateVar = tempInt;
+        this.musicDateReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            musicError.setText("Error in Date Field!");
+            this.musicDateReady = false;
+        }
+    }//GEN-LAST:event_musicDateKeyReleased
+
+    /**
+     * Music Times Played Field.
+     * @param evt 
+     */
+    private void musicTimesPlayedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicTimesPlayedKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = musicTimesPlayed.getText();
+        int tempInt = integer.parseInt(tempString);
+        musicTimesPlayedVar = tempInt;
+        this.musicTimedPlayedReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            musicError.setText("Error in Timed Played Field!");
+            this.musicTimedPlayedReady = false;
+        }
+    }//GEN-LAST:event_musicTimesPlayedKeyReleased
+
+    /**
+     * Advertising Jingle Archive Number Field.
+     * @param evt 
+     */
+    private void advertJingleArchiveNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_advertJingleArchiveNumberKeyReleased
+        // TODO add your handling code here:
+        try{
+        advertJingleError.setText(null);
+        String tempString = advertJingleArchiveNumber.getText();
+        System.out.println(tempString);
+        int tempInt = integer.parseInt(tempString);
+        advertJingleArchiveNumberVar = tempInt;
+        if(trackOrganizer.getMediaAt(advertJingleArchiveNumberVar) == null)
+            advertJingleError.setText("No Media At Archive Number!");
+            
+        }
+        
+        catch(NumberFormatException e)
+        {
+            advertJingleError.setText("Error in Archive Number!");
+            
+        }
+    }//GEN-LAST:event_advertJingleArchiveNumberKeyReleased
+
+    private void musicMinutesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_musicMinutesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_musicMinutesActionPerformed
+
+    /**
+     * Advertising Jingle Minutes Field.
+     * @param evt 
+     */
+    private void advertJingleMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_advertJingleMinutesKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = advertJingleMinutes.getText();
+        int tempInt = integer.parseInt(tempString);
+        advertJingleMinutesVar = tempInt;
+        this.advertJingleMinutesReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            advertJingleError.setText("Error in Minutes Field!");
+            this.advertJingleMinutesReady = false;
+        }
+    }//GEN-LAST:event_advertJingleMinutesKeyReleased
+
+    /**
+     * Advertising Jingle Frame Button.
+     * @param evt 
+     */
+    private void advertisingJingleBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_advertisingJingleBtnActionPerformed
+        // TODO add your handling code here:
+        advertisingJingleFrame.setVisible(true);
+        advertisingJingleFrame.setSize(300, 400);
+    }//GEN-LAST:event_advertisingJingleBtnActionPerformed
+
+    private void advertJingleSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_advertJingleSecondsKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = advertJingleSeconds.getText();
+        int tempInt = integer.parseInt(tempString);
+        advertJingleSecondsVar = tempInt;
+        this.advertJingleSecondsReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            advertJingleError.setText("Error in seconds Field!");
+            this.advertJingleSecondsReady = false;
+        }
+    }//GEN-LAST:event_advertJingleSecondsKeyReleased
+
+    /**
+     * Sound Effects Seconds Field.
+     * @param evt 
+     */
+    private void soundEffectsSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_soundEffectsSecondsKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = soundEffectsSeconds.getText();
+        int tempInt = integer.parseInt(tempString);
+        soundEffectsSecondsVar = tempInt;
+        this.soundEffectsSecondsReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            soundEffectsError.setText("Error in seconds Field!");
+            this.soundEffectsSecondsReady = false;
+        }
+    }//GEN-LAST:event_soundEffectsSecondsKeyReleased
+
+    /**
+     * Sound Effects Minutes Field.
+     * @param evt 
+     */
+    private void soundEffectsMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_soundEffectsMinutesKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = soundEffectsMinutes.getText();
+        int tempInt = integer.parseInt(tempString);
+        soundEffectsMinutesVar = tempInt;
+        this.soundEffectsMinutesReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            soundEffectsError.setText("Error in Minutes Field!");
+            this.soundEffectsMinutesReady = false;
+        }
+    }//GEN-LAST:event_soundEffectsMinutesKeyReleased
+
+    private void soundEffectsArchiveNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_soundEffectsArchiveNumberKeyReleased
+        // TODO add your handling code here:
+        try{
+        soundEffectsError.setText(null);
+        String tempString = soundEffectsArchiveNumber.getText();
+        System.out.println(tempString);
+        int tempInt = integer.parseInt(tempString);
+        soundEffectsArchiveNumberVar = tempInt;
+        if(trackOrganizer.getMediaAt(soundEffectsArchiveNumberVar) == null)
+            soundEffectsError.setText("No Media At Archive Number!");
+            
+        }
+        
+        catch(NumberFormatException e)
+        {
+            soundEffectsError.setText("Error in Archive Number!");
+            
+        }
+    }//GEN-LAST:event_soundEffectsArchiveNumberKeyReleased
+
+    private void soundEffectBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_soundEffectBtnActionPerformed
+        // TODO add your handling code here:
+        soundEffectsFrame.setVisible(true);
+        soundEffectsFrame.setSize(250, 350);
+    }//GEN-LAST:event_soundEffectBtnActionPerformed
+
+    /**
+     * News Minutes Field.
+     * @param evt 
+     */
+    private void newsMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsMinutesKeyReleased
+        // TODO add your handling code here:
+          try{
+        String tempString = newsMinutes.getText();
+        int tempInt = integer.parseInt(tempString);
+        newsMinutesVar = tempInt;
+        this.newsMinutesReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            newsError.setText("Error in Minutes Field!");
+            this.newsMinutesReady = false;
+        }
+    }//GEN-LAST:event_newsMinutesKeyReleased
+
+    /**
+     * News Seconds Field.
+     * @param evt 
+     */
+    private void newsSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsSecondsKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = newsSeconds.getText();
+        int tempInt = integer.parseInt(tempString);
+        newsSecondsVar = tempInt;
+        this.newsSecondsReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            newsError.setText("Error in seconds Field!");
+            this.newsSecondsReady = false;
+        }
+    }//GEN-LAST:event_newsSecondsKeyReleased
+
+    /**
+     * News Date Produced Field.
+     * @param evt 
+     */
+    private void newsDateProducedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsDateProducedKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = newsDateProduced.getText();
+        int tempInt = integer.parseInt(tempString);
+        newsDateProducedVar = tempInt;
+        this.newsDateProducedReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            newsError.setText("Error in Date Produced Field!");
+            this.newsDateProducedReady = false;
+        }
+    }//GEN-LAST:event_newsDateProducedKeyReleased
+
+    /**
+     * News Date Boardcasted Field.
+     * @param evt 
+     */
+    private void newsDateBoardcastedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsDateBoardcastedKeyReleased
+        // TODO add your handling code here:
+        try{
+        String tempString = newsDateBoardcasted.getText();
+        int tempInt = integer.parseInt(tempString);
+        newsDateBoardcastedVar = tempInt;
+        this.newsDateBoardcastedReady = true;
+        }
+        catch(NumberFormatException e)
+        {
+            newsError.setText("Error in seconds Field!");
+            this.newsDateBoardcastedReady = false;
+        }
+    }//GEN-LAST:event_newsDateBoardcastedKeyReleased
+
+    /**
+     * News Archive Number Field.
+     * @param evt 
+     */
+    private void newsArchiveNumberKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsArchiveNumberKeyReleased
+        // TODO add your handling code here:
+        try{
+        newsError.setText(null);
+        String tempString = newsArchiveNumber.getText();
+        System.out.println(tempString);
+        int tempInt = integer.parseInt(tempString);
+        newsArchiveNumberVar = tempInt;
+        if(trackOrganizer.getMediaAt(newsArchiveNumberVar) == null)
+            newsError.setText("No Media At Archive Number!");
+            
+        }
+        
+        catch(NumberFormatException e)
+        {
+            newsError.setText("Error in Archive Number!");
+            
+        }
+    }//GEN-LAST:event_newsArchiveNumberKeyReleased
+
+    private void newsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newsBtnActionPerformed
+        // TODO add your handling code here:
+        newsFrame.setVisible(true);
+        newsFrame.setSize(300, 500);
+    }//GEN-LAST:event_newsBtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1070,19 +1713,19 @@ public class FrameAddTrack extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton addAdvertisingJingleBtn;
+    private javax.swing.JButton addAdvertJingleBtn;
     private javax.swing.JButton addMusicBtn;
     private javax.swing.JButton addNewsBtn;
     private javax.swing.JButton addSoundEffectsBtn;
-    private javax.swing.JTextField advertisingJingleArchiveNumber;
+    private javax.swing.JTextField advertJingleArchiveNumber;
+    private javax.swing.JTextField advertJingleCompany;
+    private javax.swing.JLabel advertJingleError;
+    private javax.swing.JTextField advertJingleMinutes;
+    private javax.swing.JTextField advertJingleProduct;
+    private javax.swing.JTextField advertJingleSeconds;
+    private javax.swing.JTextField advertJingleTitle;
     private javax.swing.JButton advertisingJingleBtn;
-    private javax.swing.JTextField advertisingJingleCompany;
-    private javax.swing.JLabel advertisingJingleError;
     private javax.swing.JFrame advertisingJingleFrame;
-    private javax.swing.JTextField advertisingJingleMinutes;
-    private javax.swing.JTextField advertisingJingleProduct;
-    private javax.swing.JTextField advertisingJingleSeconds;
-    private javax.swing.JTextField advertisingJingleTitle;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1119,22 +1762,22 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private javax.swing.JTextField musicSeconds;
     private javax.swing.JTextField musicTimesPlayed;
     private javax.swing.JTextField musicTitle;
+    private javax.swing.JTextField newsArchiveNumber;
     private javax.swing.JButton newsBtn;
-    private javax.swing.JTextField newsDateBoardCasted;
+    private javax.swing.JTextField newsDateBoardcasted;
     private javax.swing.JTextField newsDateProduced;
     private javax.swing.JLabel newsError;
     private javax.swing.JFrame newsFrame;
     private javax.swing.JTextField newsJournalist;
-    private javax.swing.JTextField newsMediumArchiveNumber;
     private javax.swing.JTextField newsMinutes;
     private javax.swing.JTextField newsSeconds;
     private javax.swing.JTextField newsStory;
     private javax.swing.JTextField newsTitle;
     private javax.swing.JButton soundEffectBtn;
+    private javax.swing.JTextField soundEffectsArchiveNumber;
     private javax.swing.JTextField soundEffectsDescription;
     private javax.swing.JLabel soundEffectsError;
     private javax.swing.JFrame soundEffectsFrame;
-    private javax.swing.JTextField soundEffectsMediumArchiveNumber;
     private javax.swing.JTextField soundEffectsMinutes;
     private javax.swing.JTextField soundEffectsSeconds;
     private javax.swing.JTextField soundEffectsTitle;
