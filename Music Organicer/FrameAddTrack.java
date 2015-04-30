@@ -1361,6 +1361,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void musicMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicMinutesKeyReleased
         // TODO add your handling code here:
          try{
+             musicError.setText(null);
         String tempString = musicMinutes.getText();
         int tempInt = integer.parseInt(tempString);
         musicMinutesVar = tempInt;
@@ -1384,10 +1385,11 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void musicSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicSecondsKeyReleased
         // TODO add your handling code here:
         try{
-        String tempString = musicSeconds.getText();
-        int tempInt = integer.parseInt(tempString);
-        musicSecondsVar = tempInt;
-        this.musicSecondsReady = true;
+            musicError.setText(null);
+            String tempString = musicSeconds.getText();
+            int tempInt = integer.parseInt(tempString);
+            musicSecondsVar = tempInt;
+            this.musicSecondsReady = true;
         }
         catch(NumberFormatException e)
         {
@@ -1404,6 +1406,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void musicDateKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicDateKeyReleased
         // TODO add your handling code here:
         try{
+            musicError.setText(null);
         String tempString = musicDate.getText();
         int tempInt = integer.parseInt(tempString);
         musicDateVar = tempInt;
@@ -1423,14 +1426,15 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void musicTimesPlayedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_musicTimesPlayedKeyReleased
         // TODO add your handling code here:
         try{
-        String tempString = musicTimesPlayed.getText();
-        int tempInt = integer.parseInt(tempString);
-        musicTimesPlayedVar = tempInt;
-        this.musicTimedPlayedReady = true;
+            musicError.setText(null);
+            String tempString = musicTimesPlayed.getText();
+            int tempInt = integer.parseInt(tempString);
+            musicTimesPlayedVar = tempInt;
+            this.musicTimedPlayedReady = true;
         }
         catch(NumberFormatException e)
         {
-            musicError.setText("Error in Timed Played Field!");
+            musicError.setText("Error in Times Played Field!");
             this.musicTimedPlayedReady = false;
         }
     }//GEN-LAST:event_musicTimesPlayedKeyReleased
@@ -1470,6 +1474,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void advertJingleMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_advertJingleMinutesKeyReleased
         // TODO add your handling code here:
         try{
+        advertJingleError.setText(null);
         String tempString = advertJingleMinutes.getText();
         int tempInt = integer.parseInt(tempString);
         advertJingleMinutesVar = tempInt;
@@ -1495,6 +1500,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void advertJingleSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_advertJingleSecondsKeyReleased
         // TODO add your handling code here:
         try{
+        advertJingleError.setText(null);
         String tempString = advertJingleSeconds.getText();
         int tempInt = integer.parseInt(tempString);
         advertJingleSecondsVar = tempInt;
@@ -1514,6 +1520,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void soundEffectsSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_soundEffectsSecondsKeyReleased
         // TODO add your handling code here:
         try{
+        soundEffectsError.setText(null);
         String tempString = soundEffectsSeconds.getText();
         int tempInt = integer.parseInt(tempString);
         soundEffectsSecondsVar = tempInt;
@@ -1533,6 +1540,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void soundEffectsMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_soundEffectsMinutesKeyReleased
         // TODO add your handling code here:
         try{
+            soundEffectsError.setText(null);
         String tempString = soundEffectsMinutes.getText();
         int tempInt = integer.parseInt(tempString);
         soundEffectsMinutesVar = tempInt;
@@ -1578,6 +1586,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void newsMinutesKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsMinutesKeyReleased
         // TODO add your handling code here:
           try{
+        newsError.setText(null);
         String tempString = newsMinutes.getText();
         int tempInt = integer.parseInt(tempString);
         newsMinutesVar = tempInt;
@@ -1597,6 +1606,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void newsSecondsKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsSecondsKeyReleased
         // TODO add your handling code here:
         try{
+        newsError.setText(null);
         String tempString = newsSeconds.getText();
         int tempInt = integer.parseInt(tempString);
         newsSecondsVar = tempInt;
@@ -1616,6 +1626,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void newsDateProducedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsDateProducedKeyReleased
         // TODO add your handling code here:
         try{
+        newsError.setText(null);
         String tempString = newsDateProduced.getText();
         int tempInt = integer.parseInt(tempString);
         newsDateProducedVar = tempInt;
@@ -1635,6 +1646,7 @@ public class FrameAddTrack extends javax.swing.JFrame {
     private void newsDateBoardcastedKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newsDateBoardcastedKeyReleased
         // TODO add your handling code here:
         try{
+        newsError.setText(null);
         String tempString = newsDateBoardcasted.getText();
         int tempInt = integer.parseInt(tempString);
         newsDateBoardcastedVar = tempInt;

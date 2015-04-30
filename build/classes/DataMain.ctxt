@@ -1,5 +1,0 @@
-#BlueJ class context
-comment0.params=
-comment0.target=void\ print()
-comment0.text=\r\n\ \ \ \ public\ static\ void\ main(String[]\ args)\ {\ \r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ System.out.println("kakekake");\r\n\ \ \ \ \ \ \ \ //System.out.println("fds");\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ //System.out.println("\ sjokolade\ ");\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ /**\r\n\ \ \ \ \ \ \ \ TrackOrganizer\ dings\ \=\ new\ TrackOrganizer();\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ dings.printTest();\r\n\r\n\ \ \ \ \ \ \ \ MainFrame\ mainPanel\ \=\ new\ MainFrame();\r\n\ \ \ \ \ \ \ \ mainPanel.setVisible(true);\r\n\ \ \ \ \ \ \ \ System.out.println("kakeSlott");\r\n\ \r\n
-numComments=1
