@@ -61,3 +61,4 @@ dist/Music_Organicer_NB_offline.jar
 *.class
 *.gif
 build/built-jar.properties
+build/classes/.netbeans_automatic_build
